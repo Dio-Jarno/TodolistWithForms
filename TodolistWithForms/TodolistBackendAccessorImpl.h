@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "ITodolistBackendAccessor.h"
 #import "Todolist.h"
+#import "ServerAccess.h"
 
 @interface TodolistBackendAccessorImpl : NSObject <ITodolistBackendAccessor> {
     
-@private Todolist* todolist;
+    @private Todolist* todolist;
+
+    ServerAccess* serverAccess;
     
 }
 

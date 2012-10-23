@@ -11,21 +11,17 @@
 #import "TodoDetailsViewController.h"
 #import "ITodo.h"
 #import "TodoTableViewCell.h"
-#import "ServerAccess.h"
 
 @implementation TodolistViewController
 
 @synthesize todolist;
-
-NSString *const URL = @"http://localhost:8080/TodoApp/index?";
-//NSString *const URL = @"http://172.16.17.151:8080/TodoApp/index?";
 
 // class attribute
 static Logger* logger;
 
 // static initialiser
 + (void)initialize {
-    logger = [[Logger alloc] initForClass:[TodolistViewController class]];    
+    logger = [[Logger alloc] initForClass:[TodolistViewController class]];
 }
 
 #pragma object lifecycle
@@ -33,6 +29,7 @@ static Logger* logger;
 - (id) init {
     [logger lifecycle:@"init"];
     self = [super initWithNibName:@"TodolistView" bundle:NULL];
+    serverAccess = [[ServerAccess alloc] init];
     return self;
 }
 
@@ -318,11 +315,10 @@ static Logger* logger;
 - (IBAction) createTodo: (id) sender {
     [logger debug:@"createTodo"];
     id<ITodo> todo = [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] createTodoForName:[newTodoField text]];
-    [todolist addTodo:todo];
-    ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL]];
     int ID = [serverAccess addTodo:todo];
     if (ID > 0) {
         [todo setID:ID];
+        [todolist addTodo:todo];
         [self showDetailsForTodo:todo editable:true];
     } else {
         [todolist deleteTodo:todo];
@@ -334,7 +330,6 @@ static Logger* logger;
     TodoDetailsViewController* detailsVC = [[[TodoDetailsViewController alloc] initWithEditMode:editable] autorelease];
     [detailsVC setTodo:todo];
     [detailsVC setActionsDelegate:self];
-    
     [logger debug:[NSString stringWithFormat:@"pushing details view controller %@ onto navigation controller: %@", detailsVC, [self navigationController]]];
     [detailsVC setTodolist:[self todolist]];
     [[self navigationController] pushViewController:detailsVC animated:YES];
@@ -343,7 +338,6 @@ static Logger* logger;
 #pragma TodoActionsDelegate implementation
 - (void) saveTodo:(id<ITodo>)todo {
     [logger debug:@"saveTodo: %@", todo];
-    ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL]];
     [serverAccess updateTodo:todo];
 }
 
@@ -351,7 +345,6 @@ static Logger* logger;
     [logger debug:@"deleteTodo: %@", todo];    
     [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] deleteTodo:todo];
     [todolist deleteTodo:todo];
-    ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL]];
     [serverAccess deleteTodo:todo];
     [self refreshTodolist];
 }

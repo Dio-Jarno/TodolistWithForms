@@ -9,19 +9,15 @@
 #import "TodolistBackendAccessorImpl.h"
 #import "Logger.h"
 #import "Todo.h"
-#import "ServerAccess.h"
 
 @implementation TodolistBackendAccessorImpl 
-
-NSString *const URL2 = @"http://localhost:8080/TodoApp/index?";
-//NSString *const URL2 = @"http://172.16.17.151:8080/TodoApp/index?";
 
 // class attribute
 static Logger* logger;
 
 // static initialiser
 + (void)initialize {
-    logger = [[Logger alloc] initForClass:[TodolistBackendAccessorImpl class]];    
+    logger = [[Logger alloc] initForClass:[TodolistBackendAccessorImpl class]];
 }
 
 - (void) dealloc {
@@ -31,6 +27,7 @@ static Logger* logger;
 
 - (Todolist*) loadTodolist {
     [logger debug:@"loadTodolist"];
+    serverAccess = [[ServerAccess alloc] init];
     
     // any complex datatype value can be used as a boolean expression
     if (todolist) {
@@ -38,7 +35,7 @@ static Logger* logger;
     }
     else {
         [logger debug:@"loadTodolist: list has not been loaded yet."];
-        ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL2]];
+        //ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL]];
         todolist = [serverAccess loadTodos];
         [logger debug:@"loadTodolist: list is: %@", todolist];
     }

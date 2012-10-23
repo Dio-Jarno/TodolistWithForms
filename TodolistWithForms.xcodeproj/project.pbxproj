@@ -33,6 +33,7 @@
 		42CAD0CB15872FB600572FC1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CAD0CA15872FB600572FC1 /* MapKit.framework */; };
 		42CAD0CD1587316400572FC1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CAD0CC1587316400572FC1 /* CoreLocation.framework */; };
 		42DC318F1578A4AC002A4459 /* PlaceDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42DC318E1578A4AC002A4459 /* PlaceDetailsView.xib */; };
+		42FD0B0E16369D6400771E17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FD0B0D16369D6400771E17 /* Default-568h@2x.png */; };
 		C9076579153E2339008C7F12 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = C9076576153E2339008C7F12 /* Todo.m */; };
 		C907657A153E2339008C7F12 /* Todolist.m in Sources */ = {isa = PBXBuildFile; fileRef = C9076578153E2339008C7F12 /* Todolist.m */; };
 		C907657E153E2351008C7F12 /* TodolistBackendAccessorImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = C907657D153E2351008C7F12 /* TodolistBackendAccessorImpl.m */; };
@@ -99,6 +100,7 @@
 		42CAD0CA15872FB600572FC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42CAD0CC1587316400572FC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		42DC318E1578A4AC002A4459 /* PlaceDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailsView.xib; sourceTree = "<group>"; };
+		42FD0B0D16369D6400771E17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C9076575153E2339008C7F12 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		C9076576153E2339008C7F12 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		C9076577153E2339008C7F12 /* Todolist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todolist.h; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		C95DB97B153DD7F700ACBA2E = {
 			isa = PBXGroup;
 			children = (
+				42FD0B0D16369D6400771E17 /* Default-568h@2x.png */,
 				42CAD0CC1587316400572FC1 /* CoreLocation.framework */,
 				42CAD0CA15872FB600572FC1 /* MapKit.framework */,
 				C95DB990153DD7F900ACBA2E /* TodolistWithForms */,
@@ -421,6 +424,7 @@
 				4241350615A62EDF00A147D4 /* delete_over.png in Resources */,
 				4241350715A62EDF00A147D4 /* map.png in Resources */,
 				4241350815A62EDF00A147D4 /* add.png in Resources */,
+				42FD0B0E16369D6400771E17 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

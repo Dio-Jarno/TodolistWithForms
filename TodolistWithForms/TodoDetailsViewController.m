@@ -252,8 +252,9 @@ static Logger* logger;
     [todo setPlace:[placeField text]];
     [todo setPlacemark:[mapViewController placemark]];
     [todo setDetails:[detailsView text]];
+    
     // dueAt
-    //[todo setDueAt:[detailsView text]];    
+    //[todo setDueAt:[detailsView text]];
     [actionsDelegate saveTodo:todo];
     
     [logger debug:@"saved todo: %@", todo];

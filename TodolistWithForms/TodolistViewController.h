@@ -10,6 +10,7 @@
 #import "Todolist.h"
 #import "GenericRespondingTableView.h"
 #import "ITodo.h"
+#import "ServerAccess.h"
 
 // a protocol that specifies callback actions for todo items
 @protocol ITodoActionsDelegate <NSObject> 
@@ -40,6 +41,8 @@
     NSIndexPath* cellPath;
     float cellY;
     NSInteger cellRow;
+    
+    ServerAccess* serverAccess;
 }
 
 @property (nonatomic, retain) Todolist* todolist;

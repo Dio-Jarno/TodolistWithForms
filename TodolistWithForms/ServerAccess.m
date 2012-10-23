@@ -22,9 +22,9 @@ static Logger* logger;
     logger = [[Logger alloc] initForClass:[ServerAccess class]];    
 }
 
-- (id)initWithServerURL:(NSString *) _url {
-    [logger debug:@"ServerAccess initialized with url: %@", _url];
-    [self setUrl:_url];
+- (id) init {
+    url = @"http://Arvids-MacBook-Air.local:8080/TodoApp/index?";
+    [logger debug:@"ServerAccess initialized with url: %@", url];
     return self;
 }
 

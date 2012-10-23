@@ -14,8 +14,6 @@
 
 @property (nonatomic, retain) NSString* url;
 
-- (id) initWithServerURL:(NSString*) _url;
-
 - (Todolist*) loadTodos;
 
 - (int) addTodo:(id <ITodo>) todo;

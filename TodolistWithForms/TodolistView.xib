@@ -130,6 +130,7 @@
 						<string key="NSFrame">{{15, 80}, {290, 335}}</string>
 						<reference key="NSSuperview" ref="38705712"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:418</string>
 						<reference key="IBUIBackgroundColor" ref="929773403"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -310,7 +311,7 @@
 					<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				</object>
-				<reference key="IBUIViewControllers" ref="0"/>
+				<array class="NSMutableArray" key="IBUIViewControllers"/>
 			</object>
 			<object class="IBUIPanGestureRecognizer" id="721578337">
 				<bool key="IBUIDelaysTouchesEnded">NO</bool>
@@ -612,7 +613,6 @@
 						<string key="deleteTodo:">id</string>
 						<string key="handlePan:">UIPanGestureRecognizer</string>
 						<string key="hideKeyboard:">id</string>
-						<string key="longPress:">UILongPressGestureRecognizer</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="createTodo:">
@@ -630,10 +630,6 @@
 						<object class="IBActionInfo" key="hideKeyboard:">
 							<string key="name">hideKeyboard:</string>
 							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="longPress:">
-							<string key="name">longPress:</string>
-							<string key="candidateClassName">UILongPressGestureRecognizer</string>
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
