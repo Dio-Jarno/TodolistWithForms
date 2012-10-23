@@ -6,8 +6,15 @@
 //  Copyright (c) 2012 de.fhb.mobile. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface HideKeyboardViewController : NSObject
+@interface HideKeyboardViewController : UIViewController {
+    UITextField* textField;
+}
+
+@property (nonatomic, retain) IBOutlet UITextField *textField;
+
+- (IBAction)textFieldReturn:(id)sender;
+
 
 @end

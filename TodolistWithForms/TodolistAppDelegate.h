@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ITodolistBackendAccessor.h"
 
-@interface TLAppDelegate : UIResponder <UIApplicationDelegate>
+@interface TodolistAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
+
+@property (nonatomic, retain) id<ITodolistBackendAccessor> backendAccessor;
+
+- (void) initialiseBackendAccessor;
+
+- (void) prepareRootViewController;
 
 @end

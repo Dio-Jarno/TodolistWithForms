@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ITodo.h"
+#import "Todolist.h"
 
 @interface ServerAccess : NSObject
+
+@property (nonatomic, retain) NSString* url;
+
+- (id) initWithServerURL:(NSString*) _url;
+
+- (Todolist*) loadTodos;
+
+- (int) addTodo:(id <ITodo>) todo;
+
+- (void) updateTodo:(id <ITodo>) todo;
+
+- (void) deleteTodo:(id <ITodo>) todo;
 
 @end

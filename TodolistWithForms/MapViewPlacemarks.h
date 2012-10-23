@@ -1,13 +1,30 @@
 //
-//  MapViewPlacemarks.h
+//  GenericMapViewController.h
 //  TodolistWithForms
 //
-//  Created by Arvid on 25.06.12.
+//  Created by Arvid Grunenberg on 12.06.12.
 //  Copyright (c) 2012 de.fhb.mobile. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "MapViewController.h"
+#import "Todolist.h"
 
-@protocol MapViewPlacemarks <NSObject>
+@protocol MapViewControllerPlacemarks <NSObject>
+
+@end
+
+@interface MapViewControllerPlacemarks : UIViewController <MKMapViewDelegate> {
+    IBOutlet UIActivityIndicatorView* activityIndicator;
+    IBOutlet MKMapView *mapView;
+}
+
+@property (nonatomic, retain) Todolist* todolist;
+
+- (id) initWithTodolist:(Todolist*) todolist;
+
+- (void) displayMap;
+
 
 @end

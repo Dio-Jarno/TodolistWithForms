@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UITableViewResponder : NSObject
+@interface GenericRespondingUITableView : UITableView
 
 @end
+
+@interface GenericRespondingUITableViewCell : UITableViewCell
+
+@end
+
+

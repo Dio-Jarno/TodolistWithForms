@@ -16,6 +16,4 @@
     
 }
 
-- (Todolist*) loadTodolist;
-
 @end

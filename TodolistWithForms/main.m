@@ -6,13 +6,11 @@
 //  Copyright (c) 2012 de.fhb.mobile. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 
-#import "TLAppDelegate.h"
+#import "TodolistAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TLAppDelegate class]));
-    }
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([TodolistAppDelegate class]));
 }

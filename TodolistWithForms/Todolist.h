@@ -15,11 +15,17 @@
     
 }
 
+- (void) sortUsingSelector:(SEL)selector;
+
 - (Todolist*) addTodo:(id<ITodo>)todo;
+
+- (Todolist*) deleteTodo:(id<ITodo>)todo;
 
 - (int) countTodos;
 
-- (id<ITodo>) getTodoAtPosition:(int)pos;
+- (id<ITodo>) todoAtPosition:(int)pos;
+
+- (int) todoIndex:(id<ITodo>)todo;
 
 + (Todolist*) createTestdata;
 

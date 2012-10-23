@@ -7,7 +7,15 @@
 //
 
 #import "GenericRespondingTableView.h"
+#import "ITodo.h"
+#import "TodolistViewController.h"
 
 @interface TodoTableViewCell : GenericRespondingUITableViewCell
+
+@property (nonatomic, retain) id<ITodo> todo;
+
+@property (nonatomic, retain) id<ITodoActionsDelegate> actionsDelegate;
+
+- (void) doLayout;
 
 @end

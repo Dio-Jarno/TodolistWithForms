@@ -10,4 +10,11 @@
 
 @implementation HideKeyboardViewController
 
+@synthesize textField;
+
+-(IBAction)textFieldReturn:(id)sender {
+    [sender resignFirstResponder];
+} 
+
+
 @end

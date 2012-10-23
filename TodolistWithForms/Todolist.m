@@ -8,22 +8,40 @@
 
 #import "Todolist.h"
 #import "Todo.h"
-#import "Todo2.h"
+#import "Logger.h"
 
 @implementation Todolist
 
-// constructor
+
+// class attribute
+static Logger* logger;
+
+// static initialiser
++ (void)initialize {
+    logger = [[Logger alloc] initForClass:[Todolist
+                                           class]];    
+}
+
+#pragma object lifecycle
 - (id) init {
-    
     self = [super init];
     todos = [[[NSMutableArray alloc] init] retain];
-    
     return self;    
 }
 
+- (void) dealloc {
+    [todos release];
+    [super dealloc];
+}
+
+#pragma content access
 - (Todolist*) addTodo:(id<ITodo>)todo {
     [todos addObject:todo];
-    
+    return self;
+}
+
+- (Todolist*) deleteTodo:(id<ITodo>)todo {
+    [todos removeObject:todo];
     return self;
 }
 
@@ -31,24 +49,29 @@
     return [todos count];
 }
 
-
-- (id<ITodo>) getTodoAtPosition:(int)pos {
+- (id<ITodo>) todoAtPosition:(int)pos {
     return [todos objectAtIndex:pos];
 }
 
+- (int) todoIndex:(id<ITodo>)todo {
+    return [todos indexOfObject:todo];
+}
+
+#pragma further instance methods
 - (NSString*) description {
     return [NSString stringWithFormat:@"{%@ %@}", [super description], todos];
 }
 
-+ (Todolist*) createTestdata {    
-    return [[[[[[[[Todolist alloc] init] addTodo:[[Todo alloc] initForName:@"Todo 1.1" andDetails:@"Do something" andDueAtString:@"01-05-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 1.2" andDetails:@"Continue doing something" andDueAtString:@"02-05-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 1.3" andDetails:@"Do something more" andDueAtString:@"03-05-2012"]] addTodo:[[Todo2 alloc] initForName:@"Todo 2.1" andDetails:@"Do something" andDueAtString:@"01-06-2012"]] addTodo:[[Todo2 alloc] initForName:@"Todo 2.2" andDetails:@"Continue doing something" andDueAtString:@"02-06-2012"]] addTodo:[[Todo2 alloc] initForName:@"Todo 2.3" andDetails:@"Do something more" andDueAtString:@"03-06-2012"]];
+- (void) sortUsingSelector:(SEL)selector {
+    [logger debug:@"sorting..."];
+    [todos sortUsingSelector:selector];
 }
 
-- (void) dealloc {
-    [todos release];
-    
-    [super dealloc];
-}
+/*
+#pragma test instance
++ (Todolist*) createTestdata {    
+    return [[[[[[[[Todolist alloc] init] addTodo:[[Todo alloc] initForName:@"Todo 1.1" andPlacemark:NULL andDetails:@"Do something" andDueAtString:@"04-06-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 1.2" andPlacemark:NULL andDetails:@"Continue doing something" andDueAtString:@"05-07-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 1.3" andPlacemark:NULL andDetails:@"Do something more" andDueAtString:@"05-07-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 2.1" andPlacemark:NULL andDetails:@"Do something" andDueAtString:@"06-07-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 2.2" andPlacemark:NULL andDetails:@"Continue doing something" andDueAtString:@"12-07-2012"]] addTodo:[[Todo alloc] initForName:@"Todo 2.3" andPlacemark:NULL andDetails:@"Do something more" andDueAtString:@"31-10-2012"]];
+}*/
 
 
 @end

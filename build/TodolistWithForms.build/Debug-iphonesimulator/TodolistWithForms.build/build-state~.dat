@@ -1,0 +1,668 @@
+TTodolistWithForms
+v7
+r0
+t356858392.895186
+cCheck dependencies
+cProcessInfoPlistFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/Info.plist TodolistWithForms/TodolistWithForms-Info.plist
+cProcessPCH /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch.pth TodolistWithForms/TodolistWithForms-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/main.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistAppDelegate.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoDetailsViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todo.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todolist.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistBackendAccessorImpl.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Logger.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericRespondingTableView.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoTableViewCell.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericDatePickerViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms normal i386
+cGenerateDSYMFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app.dSYM /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms
+cCopyStringsFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/en.lproj/InfoPlist.strings TodolistWithForms/en.lproj/InfoPlist.strings
+cCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib
+cCpResource build/Debug-iphonesimulator/TodolistWithForms.app/log4c.properties TodolistWithForms/log4c.properties
+cCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib
+cCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib
+cTouch /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+c000000004D5C9B4E0000000000000110
+t1297914702
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004D54CFFA00000000002999B0
+t1297403898
+s2726320
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004D54CFE5000000000029DA70
+t1297403877
+s2742896
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004D54CFB80000000000001466
+t1297403832
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004D5615B40000000000000AA1
+t1297487284
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004D5616030000000000766870
+t1297487363
+s7759984
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/Availability.h
+c000000004D4F7A2B0000000000001B19
+t1297054251
+s6937
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.h
+c000000004F91CA020000000000000436
+t1334954498
+s1078
+i<UIKit/UIKit.h>
+i"GenericDatePickerViewController.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m
+c000000004F91D3C800000000000007A6
+t1334957000
+s1958
+i"Logger.h"
+i"GenericDatePickerViewController.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.h
+c000000004F9193C00000000000000146
+t1334940608
+s326
+i<Foundation/Foundation.h>
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m
+c000000004F91D35F000000000000034D
+t1334956895
+s845
+i"GenericRespondingTableView.h"
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/ITodo.h
+c000000004F91D30C000000000000023B
+t1334956812
+s571
+i<Foundation/Foundation.h>
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/ITodolistBackendAccessor.h
+c000000004F919B1C000000000000017D
+t1334942492
+s381
+i<Foundation/Foundation.h>
+i"Todolist.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.h
+c000000004F89305D000000000000046A
+t1334390877
+s1130
+i<Foundation/Foundation.h>
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m
+c000000004F89306200000000000024AF
+t1334390882
+s9391
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.h
+c000000004F91C1710000000000000302
+t1334952305
+s770
+i"ITodo.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m
+c000000004F91D44E00000000000008AA
+t1334957134
+s2218
+i"Todo.h"
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib
+c000000004F91A46600000000000035D0
+t1334944870
+s13776
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib
+c000000004F92BC3900000000000059C7
+t1335016505
+s22983
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.h
+c000000004F92BCE70000000000000466
+t1335016679
+s1126
+i<UIKit/UIKit.h>
+i"ITodo.h"
+i"TodolistViewController.h"
+i"GenericDatePickerViewController.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m
+c000000004F92B02400000000000017F6
+t1335013412
+s6134
+i"TodoDetailsViewController.h"
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.h
+c000000004F9198F900000000000001CC
+t1334941945
+s460
+i"GenericRespondingTableView.h"
+i"ITodo.h"
+i"TodolistViewController.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m
+c000000004F92C76C000000000000084C
+t1335019372
+s2124
+i"TodoTableViewCell.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.h
+c000000004F91CCE200000000000001ED
+t1334955234
+s493
+i<Foundation/Foundation.h>
+i"ITodo.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m
+c000000004F92A71B00000000000007E0
+t1335011099
+s2016
+i"Todolist.h"
+i"Todo.h"
+i"Logger.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.h
+c000000004F8DEFF300000000000001EA
+t1334702067
+s490
+i<UIKit/UIKit.h>
+i"ITodolistBackendAccessor.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m
+c000000004F91D45C00000000000010A3
+t1334957148
+s4259
+i"TodolistAppDelegate.h"
+i"TodolistViewController.h"
+i"TodoDetailsViewController.h"
+i"Logger.h"
+i"TodolistBackendAccessorImpl.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.h
+c000000004F919B2B0000000000000179
+t1334942507
+s377
+i<Foundation/Foundation.h>
+i"ITodolistBackendAccessor.h"
+i"Todolist.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m
+c000000004F91D2EF000000000000057C
+t1334956783
+s1404
+i"TodolistBackendAccessorImpl.h"
+i"Logger.h"
+i"ITodo.h"
+i"Todo.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib
+c000000004F926D8200000000000043BB
+t1334996354
+s17339
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.h
+c000000004F928C56000000000000041B
+t1335004246
+s1051
+i<UIKit/UIKit.h>
+i"Todolist.h"
+i"GenericRespondingTableView.h"
+i"ITodo.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m
+c000000004F926BA300000000000020D8
+t1334995875
+s8408
+i"TodolistViewController.h"
+i"TodolistAppDelegate.h"
+i"TodoDetailsViewController.h"
+i"ITodo.h"
+i"TodoTableViewCell.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch
+c000000004F8DA0790000000000000151
+t1334681721
+s337
+i<Availability.h>
+i<UIKit/UIKit.h>
+i<Foundation/Foundation.h>
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/en.lproj/InfoPlist.strings
+c000000004F8DA079000000000000002D
+t1334681721
+s45
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/log4c.properties
+c000000004F8499730000000000000019
+t1334090099
+s25
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m
+c000000004F8DF3670000000000000154
+t1334702951
+s340
+i"TodolistAppDelegate.h"
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app
+t1335165592
+s340
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app.dSYM
+t1335165591
+s102
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/Info.plist
+t1335165589
+s977
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/PkgInfo
+t1335165589
+s8
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodoDetailsDatePickerView.nib
+t1335165592
+s1814
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodoDetailsView.nib
+t1335165592
+s3539
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistView.nib
+t1335165592
+s2616
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms
+t1335165591
+s97192
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/en.lproj/InfoPlist.strings
+t1335165592
+s42
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/log4c.properties
+t1335165592
+s25
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericDatePickerViewController.o
+t1335165591
+s57440
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericRespondingTableView.o
+t1335165591
+s40564
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Logger.o
+t1335165591
+s34096
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todo.o
+t1335165591
+s20260
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoDetailsViewController.o
+t1335165591
+s72168
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoTableViewCell.o
+t1335165591
+s48272
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todolist.o
+t1335165591
+s13740
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistAppDelegate.o
+t1335165591
+s61344
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistBackendAccessorImpl.o
+t1335165591
+s12536
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistViewController.o
+t1335165591
+s79044
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistWithForms.LinkFileList
+c000000004F95029500000000000006ED
+t1335165589
+s1773
+
+N/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/main.o
+t1335165591
+s2728
+
+N/var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch.pth
+t1335165590
+s3350568
+
+NTodolistWithForms/TodolistWithForms-Info.plist
+c000000004F8DA07900000000000005E5
+t1334681721
+s1509
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies356858389#356858389#0(0"0(0#1#0"8603121408#0"0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericDatePickerViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.385066
+e356858391.438926
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericDatePickerViewController.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@104"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m356858391#356858391#0(0"0(0#0#96"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m8605616896#2301"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericDatePickerViewController.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericDatePickerViewController.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericRespondingTableView.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.335061
+e356858391.384929
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericRespondingTableView.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@99"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m356858391#356858391#0(0"0(0#0#91"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m8606560480#2291"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/GenericRespondingTableView.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/GenericRespondingTableView.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Logger.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.197954
+e356858391.334979
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Logger.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:49:11:{49:11-49:69}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o     NSLog([NSString stringWithFormat:@"LOG4CINI initialising log4c"]);
+o           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:85:11:{85:11-85:145}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o     NSLog([NSString stringWithFormat:@"LOG4CINI rootLevel is: %i. Levels are: %@. Noprofile are: %@", rootLevel, logger2level, logger2noprofile]);
+o           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:148:15:{148:15-148:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"DEBUG [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:160:15:{160:15-160:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"INFO  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:172:15:{172:15-172:119}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"LFCYC  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:184:15:{184:15-184:119}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"EVENT  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:197:15:{197:15-197:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"WARN  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:209:15:{209:15-209:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"ERROR [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:221:15:{221:15-221:120}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]
+o         NSLog([NSString stringWithFormat:@"PROFILE [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);   
+o               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o9 warnings generated.
+lSLF07#2@79"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356858391#356858391#0(3825"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:49:11:{49:11-49:69}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]     NSLog([NSString stringWithFormat:@"LOG4CINI initialising log4c"]);           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:85:11:{85:11-85:145}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]     NSLog([NSString stringWithFormat:@"LOG4CINI rootLevel is: %i. Levels are: %@. Noprofile are: %@", rootLevel, logger2level, logger2noprofile]);           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:148:15:{148:15-148:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"DEBUG [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:160:15:{160:15-160:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"INFO  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:172:15:{172:15-172:119}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"LFCYC  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:184:15:{184:15-184:119}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"EVENT  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:197:15:{197:15-197:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"WARN  [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:209:15:{209:15-209:118}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"ERROR [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m:221:15:{221:15-221:120}: warning: format string is not a string literal (potentially insecure) [-Wformat-security]         NSLog([NSString stringWithFormat:@"PROFILE [%@] - %@",klass,[self prepareMessage:msg withParameters:msgparams]]);                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~9 warnings generated.9(22@60"Format string is not a string literal (potentially insecure)356858391#0#183#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#49#11#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#49#11#49#69#22@60"Format string is not a string literal (potentially insecure)356858391#325#184#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#85#11#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#85#11#85#145#22@60"Format string is not a string literal (potentially insecure)356858391#803#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#148#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#148#15#148#118#22@60"Format string is not a string literal (potentially insecure)356858391#1230#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#160#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#160#15#160#118#22@60"Format string is not a string literal (potentially insecure)356858391#1657#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#172#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#172#15#172#119#22@60"Format string is not a string literal (potentially insecure)356858391#2086#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#184#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#184#15#184#119#22@60"Format string is not a string literal (potentially insecure)356858391#2515#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#197#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#197#15#197#118#22@60"Format string is not a string literal (potentially insecure)356858391#2942#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#209#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#209#15#209#118#22@60"Format string is not a string literal (potentially insecure)356858391#3369#187#0(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#221#15#0#0#60"format string is not a string literal (potentially insecure)1(6@71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m356083682#221#15#221#120#0#0#71"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m8601171744#2251"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Logger.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Logger.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todo.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.029115
+e356858391.162714
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todo.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@77"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m356858391#356858391#0(0"0(0#0#69"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m8605954496#2247"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todo.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todo.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoDetailsViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.004628
+e356858391.175374
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoDetailsViewController.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m:87:30:{87:30-87:34}: warning: sending 'TodoDetailsViewController *' to parameter of incompatible type 'id<UITextViewDelegate>'
+o     [detailsView setDelegate:self];
+o                              ^~~~
+oIn file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:79:
+o/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h:75:52: note: passing argument to parameter 'delegate' here
+o @property(nonatomic,assign) id<UITextViewDelegate> delegate;
+o                                                    ^
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m:225:82:{225:82-225:86}: warning: incompatible pointer types sending 'NSDate *' to parameter of type 'NSNumber *'
+o     if ([[[[NSDate alloc] initWithTimeIntervalSinceNow:0.0] autorelease] compare:date] == NSOrderedDescending) {
+o                                                                                  ^~~~
+oIn file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:9:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccelerometer.h:9:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:10:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:7:
+oIn file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h:5:
+o/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h:58:43: note: passing argument to parameter 'otherNumber' here
+o - (NSComparisonResult)compare:(NSNumber *)otherNumber;
+o                                           ^
+o2 warnings generated.
+lSLF07#2@98"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m356858391#356858391#0(2625"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m:87:30:{87:30-87:34}: warning: sending 'TodoDetailsViewController *' to parameter of incompatible type 'id<UITextViewDelegate>'     [detailsView setDelegate:self];                              ^~~~In file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:79:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h:75:52: note: passing argument to parameter 'delegate' here @property(nonatomic,assign) id<UITextViewDelegate> delegate;                                                    ^/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m:225:82:{225:82-225:86}: warning: incompatible pointer types sending 'NSDate *' to parameter of type 'NSNumber *'     if ([[[[NSDate alloc] initWithTimeIntervalSinceNow:0.0] autorelease] compare:date] == NSOrderedDescending) {                                                                                  ^~~~In file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:9:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccelerometer.h:9:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:10:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:7:In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h:5:/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h:58:43: note: passing argument to parameter 'otherNumber' here - (NSComparisonResult)compare:(NSNumber *)otherNumber;                                           ^2 warnings generated.4(22@96"Sending 'TodoDetailsViewController *' to parameter of incompatible type 'id<UITextViewDelegate>'356858391#0#218#0(6@90"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m356706212#87#30#0#0#0"1(6@90"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m356706212#87#30#87#34#13@45"Passing argument to parameter 'delegate' here356858391#576#206#3(7@167"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:79:356858391#408#168#0(6@141"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h319180084#79#0#79#0#0"0(7@117"In file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:356858391#290#118#0(6@91"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch356374521#12#0#12#0#0"0(13@195"Passing argument to parameter 'delegate' here in /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h356858391#18446744073709551615#0#0(6@146"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h319180084#75#52#0#0#0"0(6@146"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h319180084#75#52#0#0#0"0(22@79"Incompatible pointer types sending 'NSDate *' to parameter of type 'NSNumber *'356858391#898#204#0(6@90"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m356706212#225#82#0#0#28"incompatible pointer types *1(6@90"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m356706212#225#82#225#86#13@48"Passing argument to parameter 'otherNumber' here356858391#2291#211#7(7@173"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h:5:356858391#18446744073709551615#0#0(6@148"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h319096637#5#0#5#0#0"0(7@173"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:7:356858391#18446744073709551615#0#0(6@148"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h319096632#7#0#7#0#0"0(7@177"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:10:356858391#18446744073709551615#0#0(6@151"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h319096632#10#0#10#0#0"0(7@176"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccelerometer.h:9:356858391#18446744073709551615#0#0(6@151"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccelerometer.h319180084#9#0#9#0#0"0(7@166"In file included from /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h:9:356858391#18446744073709551615#0#0(6@141"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h319180084#9#0#9#0#0"0(7@117"In file included from /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch:12:356858391#18446744073709551615#0#0(6@91"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch356374521#12#0#12#0#0"0(13@200"Passing argument to parameter 'otherNumber' here in /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h356858391#18446744073709551615#0#0(6@148"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h319096638#58#43#0#0#0"0(6@148"/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSValue.h319096638#58#43#0#0#0"0(0#0#90"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m8606639616#2289"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsViewController.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoDetailsViewController.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoTableViewCell.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.343436
+e356858391.401201
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoTableViewCell.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@90"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m356858391#356858391#0(0"0(0#0#82"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m8605891104#2273"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoTableViewCell.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodoTableViewCell.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todolist.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.162786
+e356858391.197867
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todolist.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@81"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m356858391#356858391#0(0"0(0#0#73"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m8600332960#2255"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/Todolist.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/Todolist.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistAppDelegate.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858390.500389
+e356858391.029029
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistAppDelegate.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@92"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m356858390#356858391#0(0"0(0#0#84"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m8599892288#2277"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistAppDelegate.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistAppDelegate.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistBackendAccessorImpl.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.175458
+e356858391.207494
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistBackendAccessorImpl.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@100"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m356858391#356858391#0(0"0(0#0#92"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m8603461792#2293"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistBackendAccessorImpl.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistBackendAccessorImpl.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistViewController.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858391.207584
+e356858391.343353
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistViewController.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:91:10: warning: 'UIActivityIndicatorView' may not respond to 'setColor:'
+o         [activityIndicator setColor:[UIColor darkGrayColor]];
+o          ^
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:156:63: warning: local declaration of 'tableView' hides instance variable
+o     [logger debug:@"tableView: %@ numberOfRowsInSection: %@", tableView, section]; 
+o                                                               ^
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:173:32: warning: local declaration of 'tableView' hides instance variable
+o     TodoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+o                                ^
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:173:24:{173:31-173:91}: warning: incompatible pointer types initializing 'TodoTableViewCell *' with an expression of type 'UITableViewCell *'
+o     TodoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+o                        ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+o4 warnings generated.
+lSLF07#2@95"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356858391#356858391#0(1274"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:91:10: warning: 'UIActivityIndicatorView' may not respond to 'setColor:'         [activityIndicator setColor:[UIColor darkGrayColor]];          ^/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:156:63: warning: local declaration of 'tableView' hides instance variable     [logger debug:@"tableView: %@ numberOfRowsInSection: %@", tableView, section];                                                                ^/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:173:32: warning: local declaration of 'tableView' hides instance variable     TodoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];                                ^/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m:173:24:{173:31-173:91}: warning: incompatible pointer types initializing 'TodoTableViewCell *' with an expression of type 'UITableViewCell *'     TodoTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];                        ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~4 warnings generated.4(22@56"'UIActivityIndicatorView' may not respond to 'setColor:'356858391#0#161#0(6@87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356688675#91#10#0#0#22"* may not respond to *0(22@56"Local declaration of 'tableView' hides instance variable356858391#236#162#0(6@87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356688675#156#63#0#0#46"local declaration of * hides instance variable0(22@56"Local declaration of 'tableView' hides instance variable356858391#548#162#0(6@87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356688675#173#32#0#0#46"local declaration of * hides instance variable0(22@108"Incompatible pointer types initializing 'TodoTableViewCell *' with an expression of type 'UITableViewCell *'356858391#837#230#0(6@87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356688675#173#24#0#0#28"incompatible pointer types *1(6@87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m356688675#173#31#173#91#0#0#87"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m8600282432#2283"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistViewController.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistViewController.o0#
+
+CCompileC build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/main.o /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858390.499314
+e356858391.004452
+r1
+xCompileC
+xbuild/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/main.o
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@77"Compile /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m356858390#356858391#0(0"0(0#0#69"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m8601077632#2247"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -include /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/main.m -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/main.o0#
+
+CCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib
+s356858392.484537
+e356858392.892800
+r1
+xCompileXIB
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib
+o2012-04-23 09:19:52.759 Interface Builder Cocoa Touch Tool[522:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF07#2@58"CompileXIB TodolistWithForms/TodoDetailsDatePickerView.xib356858392#356858392#0(240"2012-04-23 09:19:52.759 Interface Builder Cocoa Touch Tool[522:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.0(0#0#92"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib8602816960#646"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodoDetailsDatePickerView.nib /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsDatePickerView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib
+s356858391.935707
+e356858392.484464
+r1
+xCompileXIB
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib
+o2012-04-23 09:19:52.211 Interface Builder Cocoa Touch Tool[515:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+lSLF07#2@48"CompileXIB TodolistWithForms/TodoDetailsView.xib356858391#356858392#0(240"2012-04-23 09:19:52.211 Interface Builder Cocoa Touch Tool[515:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.0(0#0#82"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib8606237440#626"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodoDetailsView.nib /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodoDetailsView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCompileXIB /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib
+s356858392.368383
+e356858392.826858
+r1
+xCompileXIB
+x/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib
+o2012-04-23 09:19:52.674 Interface Builder Cocoa Touch Tool[521:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile.
+o/* com.apple.ibtool.document.warnings */
+o/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib:-1: warning: The 'tableView' outlet of 'File's Owner' is connected to 'RespondingUI Table View' but 'RespondingUITableView' is not a kind of 'GenericRespondingUITableView' as specified by the outlet type.
+lSLF07#2@45"CompileXIB TodolistWithForms/TodolistView.xib356858392#356858392#0(566"2012-04-23 09:19:52.674 Interface Builder Cocoa Touch Tool[521:1803] CFPreferences: user home directory at file://localhost/Users/mumbai1/Library/Application%20Support/iPhone%20Simulator/User/ is unavailable. User domains will be volatile./* com.apple.ibtool.document.warnings *//Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib:-1: warning: The 'tableView' outlet of 'File's Owner' is connected to 'RespondingUI Table View' but 'RespondingUITableView' is not a kind of 'GenericRespondingUITableView' as specified by the outlet type.1(22@191"The 'tableView' outlet of 'File's Owner' is connected to 'RespondingUI Table View' but 'RespondingUITableView' is not a kind of 'GenericRespondingUITableView' as specified by the outlet type.356858392#18446744073709551615#0#0(6@79"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib356689154#18446744073709551615#0#18446744073709551615#0#0"0(0#0#79"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib8604670368#620"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistView.nib /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistView.xib --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCopyStringsFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/en.lproj/InfoPlist.strings TodolistWithForms/en.lproj/InfoPlist.strings
+s356858391.935103
+e356858392.367757
+r1
+xCopyStringsFile
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/en.lproj/InfoPlist.strings
+xTodolistWithForms/en.lproj/InfoPlist.strings
+lSLF07#2@49"Copy TodolistWithForms/en.lproj/InfoPlist.strings356858391#356858392#0(0"0(0#0#89"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/en.lproj/InfoPlist.strings8606822848#523"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv ICONV /usr/bin/iconv    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding binary TodolistWithForms/en.lproj/InfoPlist.strings --outdir /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/en.lproj0#
+
+CCpResource build/Debug-iphonesimulator/TodolistWithForms.app/log4c.properties TodolistWithForms/log4c.properties
+s356858392.367826
+e356858392.434219
+r1
+xCpResource
+xbuild/Debug-iphonesimulator/TodolistWithForms.app/log4c.properties
+xTodolistWithForms/log4c.properties
+lSLF07#2@39"Copy TodolistWithForms/log4c.properties356858392#356858392#0(0"0(0#0#79"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/log4c.properties8606767520#520"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -resolve-src-symlinks /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/log4c.properties /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app0#
+
+CGenerateDSYMFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app.dSYM /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms
+s356858391.795185
+e356858391.935028
+r1
+xGenerateDSYMFile
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app.dSYM
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms
+lSLF07#2@139"GenerateDSYMFile build/Debug-iphonesimulator/TodolistWithForms.app.dSYM build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms356858391#356858391#0(0"0(0#0#112"/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms8604749760#431"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app.dSYM0#
+
+CLd /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms normal i386
+s356858391.439006
+e356858391.795089
+r1
+xLd
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms
+xnormal
+xi386
+lSLF07#2@117"Link /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms356858391#356858391#0(0"0(0#0#0"8603508704#987"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -L/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -filelist /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/Objects-normal/i386/TodolistWithForms.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework UIKit -framework Foundation -framework CoreGraphics -prebind -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/TodolistWithForms0#
+
+CProcessInfoPlistFile /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/Info.plist TodolistWithForms/TodolistWithForms-Info.plist
+s356858389.880331
+e356858389.914454
+r1
+xProcessInfoPlistFile
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/Info.plist
+xTodolistWithForms/TodolistWithForms-Info.plist
+lSLF07#2@54"Process TodolistWithForms/TodolistWithForms-Info.plist356858389#356858389#0(0"0(0#0#91"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Info.plist31244023069409396#545"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility TodolistWithForms/TodolistWithForms-Info.plist -genpkginfo /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app/Info.plist0#
+
+CProcessPCH /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch.pth TodolistWithForms/TodolistWithForms-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s356858389.914558
+e356858390.499201
+r1
+xProcessPCH
+x/var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch.pth
+xTodolistWithForms/TodolistWithForms-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF07#2@57"Precompile TodolistWithForms/TodolistWithForms-Prefix.pch356858389#356858390#0(0"0(0#0#91"/Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch8606770112#2123"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -pipe -fdiagnostics-print-source-range-info -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wmissing-prototypes -Wreturn-type -Wunused-variable -DDEBUG=1 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fasm-blocks -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100 -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-generated-files.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-own-target-headers.hmap -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-all-target-headers.hmap -iquote /Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/TodolistWithForms-project-headers.hmap -F/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/include -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources/i386 -I/Users/mumbai1/Downloads/TodolistWithForms-1/build/TodolistWithForms.build/Debug-iphonesimulator/TodolistWithForms.build/DerivedSources -c /Users/mumbai1/Downloads/TodolistWithForms-1/TodolistWithForms/TodolistWithForms-Prefix.pch -o /var/folders/Jo/JoDq4BIMHEmUpUAP64q3iU+++TQ/-Caches-/com.apple.Xcode.503/SharedPrecompiledHeaders/TodolistWithForms-Prefix-ggireqfibjvvstbwfwymklwobfdo/TodolistWithForms-Prefix.pch.pth0#
+
+CTouch /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app
+s356858392.892929
+e356858392.895152
+r1
+xTouch
+x/Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app
+lSLF07#2@100"Touch /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app356858392#356858392#0(0"0(0#0#0"8603448512#300"    cd /Users/mumbai1/Downloads/TodolistWithForms-1    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/mumbai1/Downloads/TodolistWithForms-1/build/Debug-iphonesimulator/TodolistWithForms.app0#
+

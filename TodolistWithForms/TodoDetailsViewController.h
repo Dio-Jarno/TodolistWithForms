@@ -7,7 +7,63 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ITodo.h"
+#import "TodolistViewController.h"
+#import "GenericDatePickerViewController.h"
+#import "MapViewController.h"
 
-@interface TodolDetailsViewController : UIViewController
+@interface TodoDetailsViewController : UIViewController <UITextFieldDelegate, IGenericDatePickerActionsDelegate, IGenericDatePickerValidationDelegate
+> {
+    
+    IBOutlet UITextField* nameField;
+    IBOutlet UITextField* placeField;
+    IBOutlet UIButton* placeDetailsButton;
+    IBOutlet UITextView* detailsView;
+    IBOutlet UIButton* dueAtLabelButton;
+    IBOutlet UIButton* doneLabelButton;
+    IBOutlet UIButton* toggleEditButton;
+}
+
+@property (nonatomic, retain) id<ITodo> todo;
+
+@property (nonatomic) BOOL editable;
+
+@property (nonatomic, retain) id<ITodoActionsDelegate> actionsDelegate;
+
+@property (nonatomic, retain) Todolist* todolist;
+
+@property (nonatomic, retain) MapViewController* mapViewController;
+
+- (id) initWithEditMode:(BOOL)editable;
+
+- (IBAction)hideKeyboard:(id)sender;
+
+- (IBAction) editDate: (id) sender; 
+
+- (IBAction) toggleDone: (id) sender;
+
+- (IBAction) showMap:(id) sender;
+
+- (IBAction) swipeBack:(UISwipeGestureRecognizer *)sender;
+
+- (IBAction)swipeToPreviousTodo:(UISwipeGestureRecognizer *)sender;
+
+- (IBAction)swipeToNextTodo:(UISwipeGestureRecognizer *)sender;
+
+- (IBAction) handleMainButtonClick: (id) sender; 
+
+- (void) displayDueAtLabelButton;
+
+- (void) displayDoneLabelButton;
+
+- (void) displayEditButton;
+
+- (void) saveTodo;
+
+- (void) toggleEditMode;
+
+- (void) loadPreviousTodo;
+
+- (void) loadNextTodo;
 
 @end

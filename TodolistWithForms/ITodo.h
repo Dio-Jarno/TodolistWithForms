@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MKPlacemark.h>
 #import "Logger.h"
 
 @protocol ITodo <NSObject>
@@ -15,15 +16,27 @@
 - (NSString*) name;
 - (void) setName:(NSString*)name;
 
+- (NSString*) place;
+- (void) setPlace:(NSString*)place;
+
+- (MKPlacemark*) placemark;
+- (void) setPlacemark:(MKPlacemark*)placemark;
+
 - (NSString*) details;
 - (void) setDetails:(NSString*)details;
 
 - (NSDate*) dueAt;
 - (void) setDueAt:(NSDate*)dueAt;
 
-- (int) ID;
+- (BOOL) done;
+- (void) setDone:(BOOL)done;
 
-// instance method
+- (int) ID;
+- (void) setID:(int)ID;
+
+// instance methods
 - (NSString*) dueAtString;
+
+- (NSString*) dueAtStringWithFormat:(NSString*)format;
 
 @end
