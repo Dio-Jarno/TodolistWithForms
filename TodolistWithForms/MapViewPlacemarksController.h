@@ -22,5 +22,4 @@
 
 @property (nonatomic, retain) Todolist* todolist;
 
-
 @end

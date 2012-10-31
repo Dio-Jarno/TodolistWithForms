@@ -35,6 +35,20 @@ static Logger* logger;
     [mapView setShowsUserLocation:YES];
     
     [self.view addSubview:mapView];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [items addObject:flexiableItem];
+    
+    UIBarButtonItem *lookOutTodosItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(lookOutTodos)];
+    [items addObject:lookOutTodosItem];
+    
+    [toolbar setItems:items animated:NO];
+    [items release];
+    [self.view addSubview:toolbar];
+    [toolbar release];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -94,7 +108,31 @@ static Logger* logger;
     region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;
     
     region = [mapView regionThatFits:region]; 
-    [mapView setRegion:region animated:YES]; 
+    [mapView setRegion:region animated:YES];
+}
+
+- (void) lookOutTodos {
+    for (int i=0; i<[[self todolist] countTodos]; i++) {
+        MKPlacemark* placemark = [[[self todolist] todoAtPosition:i] placemark];
+        CLLocationDistance distance = [[[mapView userLocation] location] distanceFromLocation:[placemark location]];
+        if (distance < 1000.0) {
+            [logger info:@"distance to placemark is %f meters", distance];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                      message:@"There is a todo in your vicinity. Do you want to zoom in?"
+                                                      delegate:self
+                                                      cancelButtonTitle:@"No"
+                                                      otherButtonTitles:@"Yes",nil];
+            [alert show];
+            [alert release];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [logger info:@"button %d clicked in alert view", buttonIndex];
+    if (buttonIndex == 1) {
+        [mapView setRegion:MKCoordinateRegionMakeWithDistance([[mapView userLocation] coordinate], 2000, 2000) animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -179,15 +179,6 @@ static Logger* logger;
     [[self navigationController] popViewControllerAnimated:TRUE];
 }
 
-        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Eingabefehler"
-        //                                          message:@"Sie müssen einen Namen für das Todo wählen!"
-        //                                          delegate:nil
-        //                                          cancelButtonTitle:@"OK"
-        //                                          otherButtonTitles:nil];
-        //[alert show];
-        //[alert release];
-
-
 - (IBAction)swipeToPreviousTodo:(UISwipeGestureRecognizer *) sender {
     [logger info:@"Swipe down done."];
     [UIView animateWithDuration:0.4
