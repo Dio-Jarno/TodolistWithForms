@@ -108,10 +108,10 @@ static Logger* logger;
     [tabBarCtrl setViewControllers:[NSArray arrayWithObjects:navCtrl, mapVC, nil]];
     NSArray *tabs =  tabBarCtrl.viewControllers;
     UIViewController *tab1 = [tabs objectAtIndex:0];
-    [tab1 setTitle:@"Listenansicht"];
+    [tab1 setTitle:@"List View"];
     tab1.tabBarItem.image = [UIImage imageNamed:@"tablist.png"];
     UIViewController *tab2 = [tabs objectAtIndex:1];
-    [tab2 setTitle:@"Karteansicht"];
+    [tab2 setTitle:@"Map View"];
     tab2.tabBarItem.image = [UIImage imageNamed:@"tabmap.png"];
     
     [logger debug:[Logger logClassHierarchyForObj:tabBarCtrl]];

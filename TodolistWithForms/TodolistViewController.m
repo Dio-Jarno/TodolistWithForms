@@ -11,6 +11,7 @@
 #import "TodoDetailsViewController.h"
 #import "ITodo.h"
 #import "TodoTableViewCell.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation TodolistViewController
 
@@ -86,13 +87,13 @@ static Logger* logger;
     // set the activity indicator
     if (!activityIndicator) {
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        //[activityIndicator setColor:[UIColor darkGrayColor]];
+        [activityIndicator setColor:[UIColor darkGrayColor]];
     }
-    [logger debug:@"starting the activityIndicator"];
     activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
-    
-    [activityIndicator startAnimating];
     [self.view addSubview:activityIndicator];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(createTodo:)];
+    self.navigationItem.rightBarButtonItem = addButton;
     
     // start an asynchronous thread for loading the todolist
     [NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:NULL];
@@ -128,18 +129,19 @@ static Logger* logger;
 
 #pragma custom methods for initialising / refreshing the views
 - (void) asyncLoadTodolist {
+    [activityIndicator startAnimating];
     [logger debug:@"asyncLoadTodolist"];
     [NSThread sleepForTimeInterval:1.5];
     Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];    
     [self setTodolist:_todolist];
     [logger debug:@"asyncLoadTodolist: done. stop animation and refresh todolist"];
-    [activityIndicator stopAnimating];
     [self refreshTodolist];
 }
 
 - (void)refreshTodolist {
     [logger debug:@"refreshTodolist"];
     [todolist sortUsingSelector:@selector(compareForDueAt:)];
+    [activityIndicator stopAnimating];
     [tableView reloadData];
 }
 
@@ -203,19 +205,19 @@ static Logger* logger;
         longPressBegan = true;
         cellRow = cellPath.row;
         cellY = cellRow*44 + tableView.frame.origin.y -22;
+        dragCell.center = CGPointMake(LongTapPoint.x, LongTapPoint.y);
+        [dragCell setTodo:[cell todo]];
         [[dragCell textLabel] setText:[[cell todo] name]];
         [[dragCell textLabel] setTextColor:[[cell textLabel] textColor]];
         [[dragCell detailTextLabel] setText:[[cell todo] dueAtString]];
         [[dragCell detailTextLabel] setTextColor:[[cell detailTextLabel] textColor]];
-        dragCell.center = CGPointMake(LongTapPoint.x, LongTapPoint.y);
-        [dragCell setTodo:[cell todo]];
         [cell setSelected:YES];
-        [createButton setEnabled:NO];
+        [[[self navigationItem] rightBarButtonItem] setEnabled:NO];
         [deleteButton setEnabled:YES];
     } else if (recognizer.state == UIGestureRecognizerStateEnded) {
         [logger debug:@"LongPress ended"];
         [cell setSelected:NO];
-        [createButton setEnabled:YES];
+        [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
         [deleteButton setEnabled:NO];
         [cellPath release];
     }
@@ -226,7 +228,7 @@ static Logger* logger;
     if (longPressBegan) {
         if (sender.state == UIGestureRecognizerStateBegan) {
             if (cellPath != nil && cellRow >= 0) {
-                [logger debug:@"Cell number %i selected", cellRow]; 
+                [logger debug:@"Cell number %i selected", cellRow];
                 dndOngoing = true;
                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:cellPath] withRowAnimation:UITableViewRowAnimationMiddle];
                 dndOngoing = false;
@@ -236,7 +238,7 @@ static Logger* logger;
             [logger debug:@"Pan ended"];
             longPressBegan = false;
             [deleteButton setEnabled:NO];
-            [createButton setEnabled:YES];
+            [[[self navigationItem] rightBarButtonItem] setEnabled:YES];
             deleteButtonImage = [UIImage imageNamed:@"delete.png"];
             [deleteButton setImage:deleteButtonImage forState:UIControlStateNormal];
             if (wasOverDelete) {
@@ -295,18 +297,6 @@ static Logger* logger;
     }
 }
 
-- (void)flag:(id)sender {
-    NSLog(@"Cell was flagged");
-}
-
-- (void)approve:(id)sender {
-    NSLog(@"Cell was approved");
-}
-
-- (void)deny:(id)sender {
-    NSLog(@"Cell was denied");
-}
-
 #pragma action
 - (IBAction)hideKeyboard:(id)sender {
     [sender resignFirstResponder];
@@ -315,6 +305,9 @@ static Logger* logger;
 - (IBAction) createTodo: (id) sender {
     [logger debug:@"createTodo"];
     id<ITodo> todo = [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] createTodoForName:[newTodoField text]];
+    if ([[todo name] isEqualToString:@""]) {
+        [todo setName:@" "];
+    }
     int ID = [serverAccess addTodo:todo];
     if (ID > 0) {
         [todo setID:ID];
@@ -342,10 +335,11 @@ static Logger* logger;
 }
 
 - (void) deleteTodo:(id<ITodo>)todo {
-    [logger debug:@"deleteTodo: %@", todo];    
+    [logger debug:@"deleteTodo: %@", todo];
     [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] deleteTodo:todo];
     [todolist deleteTodo:todo];
     [serverAccess deleteTodo:todo];
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     [self refreshTodolist];
 }
 

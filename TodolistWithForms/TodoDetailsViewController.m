@@ -70,7 +70,6 @@ static Logger* logger;
  /*- (void)loadView {
  }*/
  
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     MKPlacemark* placemark = [mapViewController placemark];
@@ -104,22 +103,29 @@ static Logger* logger;
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
     
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)];
+    self.navigationItem.rightBarButtonItem = editButton;
+    
     [self displayEditButton];
 }
 
 - (void) loadData {
-    [[self navigationItem] setTitle:[todo name]];
+    [[self navigationItem] setTitle:@"Details"];
     [nameField setText:[todo name]];
     [placeField setText:[todo place]];
     [detailsView setText:[todo details]];
     [self displayDueAtLabelButton];
-    [self displayDoneLabelButton];
+    //[self displayDoneLabelButton];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [self saveTodo];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -181,6 +187,15 @@ static Logger* logger;
     [logger info:@"Swipe right done."];
     [[self navigationController] popViewControllerAnimated:TRUE];
 }
+
+        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Eingabefehler"
+        //                                          message:@"Sie müssen einen Namen für das Todo wählen!"
+        //                                          delegate:nil
+        //                                          cancelButtonTitle:@"OK"
+        //                                          otherButtonTitles:nil];
+        //[alert show];
+        //[alert release];
+
 
 - (IBAction)swipeToPreviousTodo:(UISwipeGestureRecognizer *) sender {
     [logger info:@"Swipe down done."];
@@ -244,13 +259,24 @@ static Logger* logger;
     [dueAtLabelButton setEnabled:editable];
     [doneLabelButton setEnabled:editable];
     
+    if (editable) {
+        [[[self navigationItem] rightBarButtonItem] setStyle:UIBarButtonSystemItemEdit];
+    } else {
+        [[[self navigationItem] rightBarButtonItem] setStyle:UIBarButtonSystemItemDone];
+    }
+    
     [self displayEditButton];        
 }
 
 - (void) saveTodo {
     [todo setName:[nameField text]];
+    if ([[todo name] isEqualToString:@""]) {
+        [todo setName:@" "];
+    }
     [todo setPlace:[placeField text]];
-    [todo setPlacemark:[mapViewController placemark]];
+    if ([mapViewController placemark] != NULL) {
+        [todo setPlacemark:[mapViewController placemark]];
+    }
     [todo setDetails:[detailsView text]];
     
     // dueAt
@@ -283,7 +309,7 @@ static Logger* logger;
     
     if (textField == nameField) {
         [todo setName:[textField text]];
-        [[self navigationItem] setTitle:[todo name]];
+        //[[self navigationItem] setTitle:[todo name]];
     } else if (textField == placeField) {
         [todo setPlacemark:[mapViewController placemark]];
     }

@@ -30,15 +30,9 @@ static Logger* logger;
     serverAccess = [[ServerAccess alloc] init];
     
     // any complex datatype value can be used as a boolean expression
-    if (todolist) {
-        [logger debug:@"loadTodolist: list has already been loaded."];
-    }
-    else {
-        [logger debug:@"loadTodolist: list has not been loaded yet."];
-        //ServerAccess* serverAccess = [[ServerAccess alloc] initWithServerURL:[[NSMutableString alloc] initWithString:URL]];
-        todolist = [serverAccess loadTodos];
-        [logger debug:@"loadTodolist: list is: %@", todolist];
-    }
+    [logger debug:@"loadTodolist: list has not been loaded yet."];
+    todolist = [serverAccess loadTodos];
+    [logger debug:@"loadTodolist: list is: %@", todolist];
     return todolist;    
 }
 
