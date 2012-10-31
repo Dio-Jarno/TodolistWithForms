@@ -11,6 +11,7 @@
 #import "GenericRespondingTableView.h"
 #import "ITodo.h"
 #import "ServerAccess.h"
+#import <CoreLocation/CoreLocation.h>
 
 // a protocol that specifies callback actions for todo items
 @protocol ITodoActionsDelegate <NSObject> 
@@ -23,7 +24,7 @@
 @end
 
 
-@interface TodolistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,  ITodoActionsDelegate> {
+@interface TodolistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,  ITodoActionsDelegate, CLLocationManagerDelegate> {
     
     IBOutlet UITextField* newTodoField;
     IBOutlet UIButton* createButton;
@@ -43,6 +44,7 @@
     NSInteger cellRow;
     
     ServerAccess* serverAccess;
+    CLLocationManager *locationManager;
 }
 
 @property (nonatomic, retain) Todolist* todolist;

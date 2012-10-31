@@ -19,4 +19,6 @@
 
 - (void) prepareRootViewController;
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
+
 @end

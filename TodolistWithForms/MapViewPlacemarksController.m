@@ -39,10 +39,16 @@ static Logger* logger;
     UIToolbar *toolbar = [[UIToolbar alloc] init];
     toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
     NSMutableArray *items = [[NSMutableArray alloc] init];
-    UIBarButtonItem *flexiableItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    [items addObject:flexiableItem];
+    
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(zoomToFitMapAnnotations)];
+    [cancelItem setStyle:UIBarButtonItemStyleBordered];
+    [items addObject:cancelItem];
+    
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    [items addObject:flexibleSpace];
     
     UIBarButtonItem *lookOutTodosItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(lookOutTodos)];
+    [lookOutTodosItem setStyle:UIBarButtonItemStyleBordered];
     [items addObject:lookOutTodosItem];
     
     [toolbar setItems:items animated:NO];

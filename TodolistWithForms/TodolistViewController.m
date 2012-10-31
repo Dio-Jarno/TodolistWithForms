@@ -84,6 +84,13 @@ static Logger* logger;
     
     [logger lifecycle:@"initialiseViewOnAppearance"];
     
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    
+    [self getGPS];
+    
     // set the activity indicator
     if (!activityIndicator) {
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -346,6 +353,62 @@ static Logger* logger;
 - (void) editTodo:(id<ITodo>)todo {
     [logger debug:@"editTodo: %@", todo];    
     [self showDetailsForTodo:todo editable:true];
+}
+
+// check whether GPS is enabled
+- (BOOL) isGPSEnabled {
+    if (! ([CLLocationManager locationServicesEnabled]) || ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)) {
+        return NO;
+    }
+    return YES;
+}
+
+// function to start capture GPS, we check settings first to see if GPS is disabled before attempting to get GPS
+- (void) getGPS {
+    if([self isGPSEnabled]) {
+        // Location Services is not disabled, get it now
+        [locationManager startUpdatingLocation];
+    } else {
+        // Location Services is disabled, do sth here to tell user to enable it
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                        message:@"Please enable the location service for hole functionality."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    int latitude = newLocation.coordinate.latitude;
+    //double decimal = fabs(newLocation.coordinate.latitude - degrees);
+    //int minutes = decimal * 60;
+    //double seconds = decimal * 3600 - minutes * 60;
+    //NSString *latValue = [NSString stringWithFormat:@"%dÂ° %d' %1.4f\"",
+    //                     degrees, minutes, seconds];
+    
+    int longitude = newLocation.coordinate.longitude;
+    //decimal = fabs(newLocation.coordinate.longitude - degrees);
+    //minutes = decimal * 60;
+    //seconds = decimal * 3600 - minutes * 60;
+    //NSString *longValue = [NSString stringWithFormat:@"%dÂ° %d' %1.4f\"",
+    //                       degrees, minutes, seconds];
+    
+    //NSLog(@"Lat: %@ Long:%@", latValue, longValue);
+    [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
+    // stop updating
+    //[manager stopUpdatingLocation];
+    if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
+        [logger info:@"location has changed"];
+        for (int i=0; i<[[self todolist] countTodos]; i++) {
+            MKPlacemark* placemark = [[[self todolist] todoAtPosition:i] placemark];
+            CLLocationDistance distance = [newLocation distanceFromLocation:[placemark location]];
+            if (distance < 1000.0) {
+                [logger info:@"There is a todo in the vicinity."];
+            }
+        }
+    }
 }
 
 @end
