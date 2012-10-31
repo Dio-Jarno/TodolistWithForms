@@ -20,13 +20,15 @@
     IBOutlet UIButton* placeDetailsButton;
     IBOutlet UITextView* detailsView;
     IBOutlet UIButton* dueAtLabelButton;
-    IBOutlet UIButton* doneLabelButton;
-    IBOutlet UIButton* toggleEditButton;
+    IBOutlet UISwitch *doneSwitch;
 }
 
 @property (nonatomic, retain) id<ITodo> todo;
 
 @property (nonatomic) BOOL editable;
+
+@property (nonatomic, retain) UIBarButtonItem *editButton;
+@property (nonatomic, retain) UIBarButtonItem *doneButton;
 
 @property (nonatomic, retain) id<ITodoActionsDelegate> actionsDelegate;
 

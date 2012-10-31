@@ -11,7 +11,7 @@
 
 @implementation TodoDetailsViewController
 
-@synthesize todo, editable, actionsDelegate, todolist, mapViewController;
+@synthesize todo, editable, editButton, doneButton, actionsDelegate, todolist, mapViewController;
 
 // class attribute
 static Logger* logger;
@@ -52,6 +52,7 @@ static Logger* logger;
     [logger lifecycle:@"dealloc"];
     [todo release];
     [actionsDelegate release];
+    [doneSwitch release];
     [super dealloc];
 }
 
@@ -103,19 +104,27 @@ static Logger* logger;
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)];
-    self.navigationItem.rightBarButtonItem = editButton;
+    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)];
+    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(toggleEditMode)];
     
-    [self displayEditButton];
+    if (editable) {
+        self.navigationItem.rightBarButtonItem = doneButton;
+    } else {
+        self.navigationItem.rightBarButtonItem = editButton;
+    }
 }
 
 - (void) loadData {
     [[self navigationItem] setTitle:@"Details"];
-    [nameField setText:[todo name]];
+    if ([[todo name] isEqualToString:@" "]) {
+        [nameField setText:@""];
+    } else {
+        [nameField setText:[todo name]];
+    }
     [placeField setText:[todo place]];
     [detailsView setText:[todo details]];
     [self displayDueAtLabelButton];
-    //[self displayDoneLabelButton];
+    [doneSwitch setOn:[todo done]];
 }
 
 - (void)viewDidUnload {
@@ -131,23 +140,6 @@ static Logger* logger;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma actions
-// switch to edit mode or save the todo
-- (IBAction) handleMainButtonClick: (id) sender {
-    [logger debug:@"triggerActionWithSender: %@, %@, editable is: %i", sender, toggleEditButton, editable];
-    
-    if (sender == toggleEditButton) {
-        if (!editable) {
-            [logger debug:@"toggleEditMode"];
-            [self toggleEditMode];    
-        }
-        else {
-            [logger debug:@"saveTodo"];
-            [self saveTodo];       
-        }
-    }
 }
 
 // edit the date
@@ -166,7 +158,6 @@ static Logger* logger;
 - (IBAction)toggleDone:(id)sender {
     [logger debug:@"toggleDone"];
     [todo setDone:![todo done]];
-    [self displayDoneLabelButton];
     [self saveTodo];
 }
 
@@ -257,15 +248,12 @@ static Logger* logger;
     [placeField setEnabled:editable];
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
-    [doneLabelButton setEnabled:editable];
     
     if (editable) {
-        [[[self navigationItem] rightBarButtonItem] setStyle:UIBarButtonSystemItemEdit];
+        self.navigationItem.rightBarButtonItem = doneButton;
     } else {
-        [[[self navigationItem] rightBarButtonItem] setStyle:UIBarButtonSystemItemDone];
+        self.navigationItem.rightBarButtonItem = editButton;
     }
-    
-    [self displayEditButton];        
 }
 
 - (void) saveTodo {
@@ -287,14 +275,6 @@ static Logger* logger;
 }
 
 #pragma update ui element content
-- (void)displayDoneLabelButton {
-    [doneLabelButton setTitle:[todo done] ? @"Reopen" : @"Done" forState:UIControlStateNormal];
-}
-
-- (void)displayEditButton {
-    [toggleEditButton setTitle:(!editable ? @"Edit" : @"Save") forState:UIControlStateNormal];
-}
-
 - (void) displayDueAtLabelButton {
     [dueAtLabelButton setTitle:[todo dueAtStringWithFormat:@"dd-MM-yyyy hh:mm"] forState:UIControlStateNormal];
 }
