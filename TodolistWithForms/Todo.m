@@ -11,7 +11,7 @@
 
 @implementation Todo
 
-@synthesize ID, name, place, placemark, dueAt, details, done;
+@synthesize ID, name, place, placemark, dueAt, details, done, notification;
 
 
 // class attribute

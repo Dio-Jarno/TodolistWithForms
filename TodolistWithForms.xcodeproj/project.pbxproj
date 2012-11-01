@@ -10,7 +10,7 @@
 		4230D4F615989012001C1C06 /* tabmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4F515989012001C1C06 /* tabmap.png */; };
 		4230D4FA159894F5001C1C06 /* MapViewPlacemarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */; };
 		4230D5001598A7AA001C1C06 /* tablist.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4FF1598A7AA001C1C06 /* tablist.png */; };
-		423F24A316413D2300B40D0A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423F24A216413D2300B40D0A /* AudioToolbox.framework */; };
+		423F24A316413D2300B40D0A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423F24A216413D2300B40D0A /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4241350515A62EDF00A147D4 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 4241350115A62EDF00A147D4 /* delete.png */; };
 		4241350615A62EDF00A147D4 /* delete_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 4241350215A62EDF00A147D4 /* delete_over.png */; };
 		4241350715A62EDF00A147D4 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4241350315A62EDF00A147D4 /* map.png */; };
@@ -97,6 +97,7 @@
 		42CAD0CA15872FB600572FC1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42CAD0CC1587316400572FC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		42DC318E1578A4AC002A4459 /* PlaceDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceDetailsView.xib; sourceTree = "<group>"; };
+		42F0CE891642E038003697DF /* libsystem_notify.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsystem_notify.dylib; path = usr/lib/system/libsystem_notify.dylib; sourceTree = SDKROOT; };
 		C9076575153E2339008C7F12 /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
 		C9076576153E2339008C7F12 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		C9076577153E2339008C7F12 /* Todolist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todolist.h; sourceTree = "<group>"; };
@@ -241,6 +242,7 @@
 		C95DB97B153DD7F700ACBA2E = {
 			isa = PBXGroup;
 			children = (
+				42F0CE891642E038003697DF /* libsystem_notify.dylib */,
 				423F24A216413D2300B40D0A /* AudioToolbox.framework */,
 				42CAD0CC1587316400572FC1 /* CoreLocation.framework */,
 				42CAD0CA15872FB600572FC1 /* MapKit.framework */,
@@ -558,6 +560,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TodolistWithForms/TodolistWithForms-Prefix.pch";
 				INFOPLIST_FILE = "TodolistWithForms/TodolistWithForms-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -571,6 +577,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TodolistWithForms/TodolistWithForms-Prefix.pch";
 				INFOPLIST_FILE = "TodolistWithForms/TodolistWithForms-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

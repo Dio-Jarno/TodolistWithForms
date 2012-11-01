@@ -25,6 +25,8 @@
 
 @property (nonatomic) int ID;
 
+@property (nonatomic) BOOL notification;
+
 - (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAt:(NSDate*)_date;
 
 - (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAtString:(NSString*)_date;

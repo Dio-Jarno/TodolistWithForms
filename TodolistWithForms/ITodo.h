@@ -34,6 +34,9 @@
 - (int) ID;
 - (void) setID:(int)ID;
 
+- (BOOL) notification;
+- (void) setNotification:(BOOL)notification;
+
 // instance methods
 - (NSString*) dueAtString;
 

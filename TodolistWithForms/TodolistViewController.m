@@ -88,8 +88,9 @@ static Logger* logger;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    locationManager.pausesLocationUpdatesAutomatically = NO;
     
-    [self getGPS];
+    [self startGPS];
     
     // set the activity indicator
     if (!activityIndicator) {
@@ -364,17 +365,17 @@ static Logger* logger;
 }
 
 // function to start capture GPS, we check settings first to see if GPS is disabled before attempting to get GPS
-- (void) getGPS {
+- (void) startGPS {
     if([self isGPSEnabled]) {
         // Location Services is not disabled, get it now
         [locationManager startUpdatingLocation];
     } else {
         // Location Services is disabled, do sth here to tell user to enable it
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                        message:@"Please enable the location service for hole functionality."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
+                                                  message:@"Please enable the location service for hole functionality."
+                                                  delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
         [alert show];
         [alert release];
     }
@@ -382,33 +383,45 @@ static Logger* logger;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     int latitude = newLocation.coordinate.latitude;
-    //double decimal = fabs(newLocation.coordinate.latitude - degrees);
-    //int minutes = decimal * 60;
-    //double seconds = decimal * 3600 - minutes * 60;
-    //NSString *latValue = [NSString stringWithFormat:@"%dÂ° %d' %1.4f\"",
-    //                     degrees, minutes, seconds];
-    
     int longitude = newLocation.coordinate.longitude;
-    //decimal = fabs(newLocation.coordinate.longitude - degrees);
-    //minutes = decimal * 60;
-    //seconds = decimal * 3600 - minutes * 60;
-    //NSString *longValue = [NSString stringWithFormat:@"%dÂ° %d' %1.4f\"",
-    //                       degrees, minutes, seconds];
-    
-    //NSLog(@"Lat: %@ Long:%@", latValue, longValue);
     [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
-    // stop updating
-    //[manager stopUpdatingLocation];
-    if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
+    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
         [logger info:@"location has changed"];
         for (int i=0; i<[[self todolist] countTodos]; i++) {
-            MKPlacemark* placemark = [[[self todolist] todoAtPosition:i] placemark];
+            id<ITodo> _todo = [[self todolist] todoAtPosition:i];
+            MKPlacemark* placemark = [_todo placemark];
             CLLocationDistance distance = [newLocation distanceFromLocation:[placemark location]];
             if (distance < 1000.0) {
-                [logger info:@"There is a todo in the vicinity."];
+                [logger info:@"there is a todo in the vicinity"];
+                if (![_todo notification]) {
+                    [self scheduleNotification:_todo];
+                }
             }
         }
-    }
+    //}
+}
+
+- (void)scheduleNotification:(id<ITodo>)todo {
+    [logger info:@"create notification for todo with id %d", [todo ID]];
+    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    
+    NSMutableString *message = [NSMutableString stringWithString:@"The todo '"];
+    [message appendString:[todo name]];
+    [message appendString:@"' is in your vicinity."];
+    notification.alertBody = message;
+    notification.alertAction = @"Show me";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    notification.applicationIconBadgeNumber += 1;
+    
+    NSDictionary *userDict = [NSDictionary dictionaryWithObject:[todo name] forKey:@"todoName"];
+    notification.userInfo = userDict;
+        
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    [notification release];
+    
+    [todo setNotification:YES];
 }
 
 @end

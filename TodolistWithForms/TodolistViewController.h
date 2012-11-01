@@ -63,4 +63,6 @@
 
 - (void)showDetailsForTodo:(id<ITodo>)todo editable:(BOOL)editable;
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
+
 @end
