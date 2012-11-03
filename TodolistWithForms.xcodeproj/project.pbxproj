@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420668B316459E8B00233929 /* PlacemarkTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 420668B216459E8B00233929 /* PlacemarkTodo.m */; };
 		4230D4F615989012001C1C06 /* tabmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4F515989012001C1C06 /* tabmap.png */; };
 		4230D4FA159894F5001C1C06 /* MapViewPlacemarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */; };
 		4230D5001598A7AA001C1C06 /* tablist.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4FF1598A7AA001C1C06 /* tablist.png */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		420668B116459CAD00233929 /* PlacemarkTodo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacemarkTodo.h; sourceTree = "<group>"; };
+		420668B216459E8B00233929 /* PlacemarkTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkTodo.m; sourceTree = "<group>"; };
 		4230D4F515989012001C1C06 /* tabmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabmap.png; sourceTree = "<group>"; };
 		4230D4F8159894F5001C1C06 /* MapViewPlacemarksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewPlacemarksController.h; sourceTree = "<group>"; };
 		4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewPlacemarksController.m; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				C92257771541B65000EECBA8 /* GenericRespondingTableView.m */,
 				C922577C1541D4FD00EECBA8 /* GenericDatePickerViewController.h */,
 				C922577D1541D4FD00EECBA8 /* GenericDatePickerViewController.m */,
+				420668B116459CAD00233929 /* PlacemarkTodo.h */,
+				420668B216459E8B00233929 /* PlacemarkTodo.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				42CAD0C915871F5C00572FC1 /* MapViewController.m in Sources */,
 				4230D4FA159894F5001C1C06 /* MapViewPlacemarksController.m in Sources */,
 				42BA7D2B15A340C500F7C118 /* ServerAccess.m in Sources */,
+				420668B316459E8B00233929 /* PlacemarkTodo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

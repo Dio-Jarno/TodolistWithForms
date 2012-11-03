@@ -182,8 +182,7 @@ static Logger* logger;
     // let the cell layout itself given the todo object we have passed
     [cell doLayout];
 
-    // allow to create a context menu for the cell
-    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget: self action:@selector(longPress:)];    
+    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];    
     [cell addGestureRecognizer:recognizer];
     
     return cell;

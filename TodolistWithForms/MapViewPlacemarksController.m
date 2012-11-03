@@ -9,10 +9,10 @@
 #import "MapViewPlacemarksController.h"
 #import "TodolistAppDelegate.h"
 #import "Logger.h"
+#import "PlacemarkTodo.h"
+#import "TodoDetailsViewController.h"
 
 @implementation MapViewPlacemarksController
-
-@synthesize todolist;
 
 static Logger* logger;
 
@@ -36,42 +36,49 @@ static Logger* logger;
     
     [self.view addSubview:mapView];
     
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-    NSMutableArray *items = [[NSMutableArray alloc] init];
+    //UIToolbar *toolbar = [[UIToolbar alloc] init];
+    //toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+    //NSMutableArray *items = [[NSMutableArray alloc] init];
     
     UIBarButtonItem *zoomOutItem = [[UIBarButtonItem alloc] initWithTitle:@"Zoom out" style:UIBarButtonItemStyleBordered target:self action:@selector(zoomToFitMapAnnotations)];
-    [zoomOutItem setStyle:UIBarButtonItemStyleBordered];
-    [items addObject:zoomOutItem];
+    //[zoomOutItem setStyle:UIBarButtonItemStyleBordered];
+    [[self navigationItem] setLeftBarButtonItem:zoomOutItem];
+    //[items addObject:zoomOutItem];
     
-    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    [items addObject:flexibleSpace];
+    //UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    //[items addObject:flexibleSpace];
     
     UIBarButtonItem *zoomInItem = [[UIBarButtonItem alloc] initWithTitle:@"Zoom in" style:UIBarButtonItemStyleBordered target:self action:@selector(zoomIn)];
-    [zoomInItem setStyle:UIBarButtonItemStyleBordered];
-    [items addObject:zoomInItem];
+    //[zoomInItem setStyle:UIBarButtonItemStyleBordered];
+    [[self navigationItem] setRightBarButtonItem:zoomInItem];
+    //[items addObject:zoomInItem];
     
-    [toolbar setItems:items animated:NO];
-    [items release];
-    [self.view addSubview:toolbar];
-    [toolbar release];
+    //[toolbar setItems:items animated:NO];
+    //[items release];
+    //[self.view addSubview:toolbar];
+    //[toolbar release];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated {
     [logger debug:@"MapViewPlacemarksController - viewDidAppear"];
+    [[self navigationItem] setTitle:@"Map"];
     dispatch_group_t group = dispatch_group_create();
-    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];    
-    [self setTodolist:_todolist];
+    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
+    //[self setTodolist:_todolist];
     [mapView removeAnnotations:[mapView annotations]];
-    for (int i=0; i<[[self todolist] countTodos]; i++) {
-        MKPlacemark* _placemark = [[[self todolist] todoAtPosition:i] placemark];
+    for (int i=0; i<[_todolist countTodos]; i++) {
+        id<ITodo> _todo = [_todolist todoAtPosition:i];
+        MKPlacemark* _placemark = [_todo placemark];
         if (_placemark != NULL) {
             dispatch_group_enter(group);
             CLGeocoder* geocoder = [[CLGeocoder alloc] init];
             [geocoder reverseGeocodeLocation:_placemark.location
                            completionHandler:^(NSArray *placemarks, NSError *error) {
                                CLPlacemark *topResult = [placemarks objectAtIndex:0];
-                               MKPlacemark *newPlacemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                               PlacemarkTodo *newPlacemark = [[PlacemarkTodo alloc] initWithPlacemark:topResult];
+                               [newPlacemark setTodoIndex:i];
+                               [newPlacemark setStrTitle:[_todo name]];
+                               [newPlacemark setStrSubtitle:[_todo place]];
                                [mapView addAnnotation:newPlacemark];
                                dispatch_group_leave(group);
                            }
@@ -142,7 +149,43 @@ static Logger* logger;
 }*/
 
 - (void) zoomIn {
+    [logger debug:@"MapViewPlacemarksController - zoomIn"];
     [mapView setRegion:MKCoordinateRegionMakeWithDistance([[mapView userLocation] coordinate], 2000, 2000) animated:YES];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(PlacemarkTodo*)annotation {
+    // Don't mess user location
+    if (![annotation isKindOfClass:[PlacemarkTodo class]]) {
+        return nil;
+    }
+    
+    //mapView.mapType=MKMapTypeHybrid;
+    MKPinAnnotationView *pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
+    pinAnnotationView.animatesDrop = YES;
+    pinAnnotationView.canShowCallout = YES;
+    pinAnnotationView.calloutOffset = CGPointMake(-5, 5);
+    
+    UIButton *detailButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [detailButton addTarget:self action:@selector(showTodo:) forControlEvents:UIControlEventTouchUpInside];
+    [detailButton setTag:[annotation todoIndex]];
+    pinAnnotationView.rightCalloutAccessoryView = detailButton;
+    
+    return pinAnnotationView;
+}
+
+- (void) showTodo:(UIButton*) detailButton {
+    [logger debug:@"MapViewPlacemarksController - showTodo with list index %d", [detailButton tag]];
+    TodoDetailsViewController* detailsVC = [[[TodoDetailsViewController alloc] initWithEditMode:NO] autorelease];
+    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
+    id<ITodo> todo = [_todolist todoAtPosition:[detailButton tag]];
+    [detailsVC setTodo:todo];
+    [detailsVC setTodolist:_todolist];
+    [[self navigationController] pushViewController:detailsVC animated:YES];
+    
+    //detailsVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //[self presentViewController:detailsVC animated:YES completion:nil];
+    //[[self tabBarController] setSelectedIndex:0];
+    //[detailsVC release];
 }
 
 - (void)didReceiveMemoryWarning {

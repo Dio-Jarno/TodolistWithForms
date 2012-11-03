@@ -150,8 +150,9 @@ static Logger* logger;
     [datePicker setActionsDelegate:self];
     [datePicker setValidationDelegate:self];
     
+    //datePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //[self presentViewController:datePicker animated:YES completion:nil];
     [self.view addSubview:[datePicker view]];
-    
 }
 
 // reopen / markasdone
@@ -261,13 +262,11 @@ static Logger* logger;
     // dueAt
     //[todo setDueAt:[detailsView text]];
     [actionsDelegate saveTodo:todo];
-    
-    [logger debug:@"saved todo: %@", todo];
 }
 
 #pragma update ui element content
 - (void) displayDueAtLabelButton {
-    [dueAtLabelButton setTitle:[todo dueAtStringWithFormat:@"dd-MM-yyyy hh:mm"] forState:UIControlStateNormal];
+    [dueAtLabelButton setTitle:[todo dueAtStringWithFormat:@"MM/dd/yyyy hh:mm"] forState:UIControlStateNormal];
 }
 
 #pragma UITextFieldDelegate implementation

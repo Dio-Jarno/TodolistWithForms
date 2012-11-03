@@ -134,8 +134,10 @@ static Logger* logger;
     // create a navigation controller that will track transitions between view controllers and handle back button events
     UINavigationController* navCtrl = [[[UINavigationController alloc] initWithRootViewController:rootVC] autorelease];
     
+    UINavigationController* mapCtrl = [[[UINavigationController alloc] initWithRootViewController:mapVC] autorelease];
+    
     UITabBarController* tabBarCtrl = [[[UITabBarController alloc] init] autorelease];
-    [tabBarCtrl setViewControllers:[NSArray arrayWithObjects:navCtrl, mapVC, nil]];
+    [tabBarCtrl setViewControllers:[NSArray arrayWithObjects:navCtrl, mapCtrl, nil]];
     NSArray *tabs =  tabBarCtrl.viewControllers;
     UIViewController *tab1 = [tabs objectAtIndex:0];
     [tab1 setTitle:@"List View"];

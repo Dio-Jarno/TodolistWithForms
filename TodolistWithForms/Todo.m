@@ -71,7 +71,7 @@ static Logger* logger;
 // class method: obtain a date formatter 
 + (NSDateFormatter*) dateFormatter {
     NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease]; 
-    df.dateFormat = @"dd-MM-yyyy hh:mm";
+    df.dateFormat = @"MM/dd/yyyy hh:mm";
     return df;
 }
 

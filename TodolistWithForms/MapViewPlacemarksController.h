@@ -20,6 +20,4 @@
     IBOutlet MKMapView *mapView;
 }
 
-@property (nonatomic, retain) Todolist* todolist;
-
 @end
