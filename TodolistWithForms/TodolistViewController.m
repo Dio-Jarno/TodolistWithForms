@@ -89,7 +89,6 @@ static Logger* logger;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     locationManager.pausesLocationUpdatesAutomatically = NO;
-    
     [self startGPS];
     
     // set the activity indicator
@@ -381,7 +380,31 @@ static Logger* logger;
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *location = [locations lastObject];
+    float latitude = location.coordinate.latitude;
+    float longitude = location.coordinate.longitude;
+    
+    [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
+    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
+    [logger info:@"location has changed"];
+    for (int i=0; i<[[self todolist] countTodos]; i++) {
+        id<ITodo> _todo = [[self todolist] todoAtPosition:i];
+        MKPlacemark* placemark = [_todo placemark];
+        if (placemark != NULL) {
+            CLLocationDistance distance = [location distanceFromLocation:[placemark location]];
+            if (distance < 1000.0) {
+                [logger info:@"there is a todo in the vicinity"];
+                if (![_todo done] && ![_todo notification]) {
+                    [self scheduleNotification:_todo];
+                }
+            }
+        }
+    }
+    //}
+}
+
+/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     int latitude = newLocation.coordinate.latitude;
     int longitude = newLocation.coordinate.longitude;
     [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
@@ -393,13 +416,13 @@ static Logger* logger;
             CLLocationDistance distance = [newLocation distanceFromLocation:[placemark location]];
             if (distance < 1000.0) {
                 [logger info:@"there is a todo in the vicinity"];
-                if (![_todo notification]) {
+                if (![_todo done] && ![_todo notification]) {
                     [self scheduleNotification:_todo];
                 }
             }
         }
     //}
-}
+}*/
 
 - (void)scheduleNotification:(id<ITodo>)todo {
     [logger info:@"create notification for todo with id %d", [todo ID]];

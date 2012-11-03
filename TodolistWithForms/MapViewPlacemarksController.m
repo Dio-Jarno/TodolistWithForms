@@ -40,16 +40,16 @@ static Logger* logger;
     toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
     NSMutableArray *items = [[NSMutableArray alloc] init];
     
-    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(zoomToFitMapAnnotations)];
-    [cancelItem setStyle:UIBarButtonItemStyleBordered];
-    [items addObject:cancelItem];
+    UIBarButtonItem *zoomOutItem = [[UIBarButtonItem alloc] initWithTitle:@"Zoom out" style:UIBarButtonItemStyleBordered target:self action:@selector(zoomToFitMapAnnotations)];
+    [zoomOutItem setStyle:UIBarButtonItemStyleBordered];
+    [items addObject:zoomOutItem];
     
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     [items addObject:flexibleSpace];
     
-    UIBarButtonItem *lookOutTodosItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(lookOutTodos)];
-    [lookOutTodosItem setStyle:UIBarButtonItemStyleBordered];
-    [items addObject:lookOutTodosItem];
+    UIBarButtonItem *zoomInItem = [[UIBarButtonItem alloc] initWithTitle:@"Zoom in" style:UIBarButtonItemStyleBordered target:self action:@selector(zoomIn)];
+    [zoomInItem setStyle:UIBarButtonItemStyleBordered];
+    [items addObject:zoomInItem];
     
     [toolbar setItems:items animated:NO];
     [items release];
@@ -116,7 +116,7 @@ static Logger* logger;
     region = [mapView regionThatFits:region]; 
     [mapView setRegion:region animated:YES];
 }
-
+/*
 - (void) lookOutTodos {
     for (int i=0; i<[[self todolist] countTodos]; i++) {
         MKPlacemark* placemark = [[[self todolist] todoAtPosition:i] placemark];
@@ -139,6 +139,10 @@ static Logger* logger;
     if (buttonIndex == 1) {
         [mapView setRegion:MKCoordinateRegionMakeWithDistance([[mapView userLocation] coordinate], 2000, 2000) animated:YES];
     }
+}*/
+
+- (void) zoomIn {
+    [mapView setRegion:MKCoordinateRegionMakeWithDistance([[mapView userLocation] coordinate], 2000, 2000) animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

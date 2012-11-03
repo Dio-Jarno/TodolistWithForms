@@ -35,6 +35,7 @@ static Logger* logger;
 #pragma inherited methods
 // lunching when app was closed
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    application.applicationIconBadgeNumber = 0;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -54,13 +55,13 @@ static Logger* logger;
         NSString *todoName = [notification.userInfo objectForKey:@"todoName"];
         [logger info:@"lunching closed app from notification of todo with id %@", todoName];
     }
-    application.applicationIconBadgeNumber -= 1;
     
     return YES;
 }
 
 // lunching when app was in background
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    application.applicationIconBadgeNumber = 0;
     NSString *todoName = [notification.userInfo objectForKey:@"todoName"];
     NSMutableString *message = [NSMutableString stringWithString:@"The todo '"];
     [message appendString:todoName];
@@ -79,7 +80,6 @@ static Logger* logger;
         [alert show];
         [alert release];
     }
-    application.applicationIconBadgeNumber -= 1;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
