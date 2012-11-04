@@ -68,7 +68,9 @@ static Logger* logger;
     if (accuracy && placemark == NULL) {
         [logger debug:@"user location: %f",[[mapView userLocation] coordinate]];
         [_mapView setRegion:MKCoordinateRegionMakeWithDistance([[_mapView userLocation] coordinate], 2000, 2000) animated:YES];
-    } 
+        placemark = [[MKPlacemark alloc] initWithCoordinate:[[_mapView userLocation] coordinate] addressDictionary:nil];
+        [mapView addAnnotation:placemark];
+    }
 }
 
 - (void)displayMap {

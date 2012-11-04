@@ -54,18 +54,20 @@ static Logger* logger;
     if (notification) {
         NSString *todoName = [notification.userInfo objectForKey:@"todoName"];
         [logger info:@"lunching closed app from notification of todo with id %@", todoName];
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
     }
     
     return YES;
 }
 
-// lunching when app was in background
+// lunching when app is runnig
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     application.applicationIconBadgeNumber = 0;
     NSString *todoName = [notification.userInfo objectForKey:@"todoName"];
     NSMutableString *message = [NSMutableString stringWithString:@"The todo '"];
     [message appendString:todoName];
     [message appendString:@"' is in your vicinity."];
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
     UIApplicationState state = [application applicationState];
     if (state == UIApplicationStateInactive) {
         // Application was in the background when notification was delivered.

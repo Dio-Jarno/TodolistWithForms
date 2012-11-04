@@ -18,8 +18,8 @@
 
 - (int) addTodo:(id <ITodo>) todo;
 
-- (void) updateTodo:(id <ITodo>) todo;
+- (BOOL) updateTodo:(id <ITodo>) todo;
 
-- (void) deleteTodo:(id <ITodo>) todo;
+- (BOOL) deleteTodo:(id <ITodo>) todo;
 
 @end

@@ -89,12 +89,12 @@ static Logger* logger;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     locationManager.pausesLocationUpdatesAutomatically = NO;
-    //[self startGPS];
+    [self startGPS];
     
     // set the activity indicator
     if (!activityIndicator) {
         activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        [activityIndicator setColor:[UIColor darkGrayColor]];
+        [activityIndicator setColor:[UIColor blackColor]];
     }
     activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
     [self.view addSubview:activityIndicator];
@@ -136,19 +136,23 @@ static Logger* logger;
 
 #pragma custom methods for initialising / refreshing the views
 - (void) asyncLoadTodolist {
-    [activityIndicator startAnimating];
     [logger debug:@"asyncLoadTodolist"];
-    [NSThread sleepForTimeInterval:1.5];
-    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];    
-    [self setTodolist:_todolist];
-    [logger debug:@"asyncLoadTodolist: done. stop animation and refresh todolist"];
-    [self refreshTodolist];
+    //[NSThread sleepForTimeInterval:1.5];
+    [activityIndicator startAnimating];
+    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
+    [activityIndicator stopAnimating];
+    if (_todolist != NULL) {
+        [logger debug:@"asyncLoadTodolist: done. stop animation and refresh todolist"];
+        [self setTodolist:_todolist];
+        [self refreshTodolist];
+    } else {
+        [self showError:@"Could not load todos from the internet. Please check your internet connection."];
+    }
 }
 
 - (void)refreshTodolist {
     [logger debug:@"refreshTodolist"];
     [todolist sortUsingSelector:@selector(compareForDueAt:)];
-    [activityIndicator stopAnimating];
     [tableView reloadData];
 }
 
@@ -248,8 +252,9 @@ static Logger* logger;
             deleteButtonImage = [UIImage imageNamed:@"delete.png"];
             [deleteButton setImage:deleteButtonImage forState:UIControlStateNormal];
             if (wasOverDelete) {
-                [self deleteTodo:[dragCell todo]];
                 [dragCell setHidden:YES];
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+                [self deleteTodo:[dragCell todo]];
             } else {
                 //wieder in Liste zurück
                 [UIView animateWithDuration:0.5
@@ -321,6 +326,7 @@ static Logger* logger;
         [self showDetailsForTodo:todo editable:true];
     } else {
         [todolist deleteTodo:todo];
+        [self showError:@"Could not create new todo. Please check your internet connection."];
     }
 }
 
@@ -335,18 +341,30 @@ static Logger* logger;
 }
 
 #pragma TodoActionsDelegate implementation
-- (void) saveTodo:(id<ITodo>)todo {
+- (BOOL) saveTodo:(id<ITodo>)todo {
     [logger debug:@"saveTodo: %@", todo];
-    [serverAccess updateTodo:todo];
+    [activityIndicator startAnimating];
+    BOOL successful = [serverAccess updateTodo:todo];
+    [activityIndicator stopAnimating];
+    if (!successful) {
+        [self showError:@"Could not save todo. Please check your internet connection."];
+        return FALSE;
+    }
+    return TRUE;
 }
 
 - (void) deleteTodo:(id<ITodo>)todo {
     [logger debug:@"deleteTodo: %@", todo];
     [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] deleteTodo:todo];
     [todolist deleteTodo:todo];
-    [serverAccess deleteTodo:todo];
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    [self refreshTodolist];
+    [activityIndicator startAnimating];
+    BOOL successful = [serverAccess deleteTodo:todo];
+    [activityIndicator stopAnimating];
+    if (!successful) {
+        [self showError:@"Could not delete todo. Please check your internet connection."];
+    } else {
+        [self refreshTodolist];
+    }
 }
 
 - (void) editTodo:(id<ITodo>)todo {
@@ -367,12 +385,13 @@ static Logger* logger;
     if([self isGPSEnabled]) {
         // Location Services is not disabled, get it now
         [locationManager startUpdatingLocation];
+        [logger lifecycle:@"location manager started"];
     } else {
         // Location Services is disabled, do sth here to tell user to enable it
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
                                                   message:@"Please enable the location service for hole functionality."
                                                   delegate:nil
-                                                  cancelButtonTitle:@"Ok"
+                                                  cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
         [alert show];
         [alert release];
@@ -444,6 +463,16 @@ static Logger* logger;
     [notification release];
     
     [todo setNotification:YES];
+}
+
+- (void) showError:(NSString *) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                              message:message
+                                              delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		420668B316459E8B00233929 /* PlacemarkTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = 420668B216459E8B00233929 /* PlacemarkTodo.m */; };
+		420668B51646C17600233929 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 420668B41646C17600233929 /* Default-568h@2x.png */; };
+		420668BE1646D9C600233929 /* TodoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420668BD1646D9C600233929 /* TodoDetailsViewController.m */; };
 		4230D4F615989012001C1C06 /* tabmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4F515989012001C1C06 /* tabmap.png */; };
 		4230D4FA159894F5001C1C06 /* MapViewPlacemarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */; };
 		4230D5001598A7AA001C1C06 /* tablist.png in Resources */ = {isa = PBXBuildFile; fileRef = 4230D4FF1598A7AA001C1C06 /* tablist.png */; };
@@ -54,7 +56,6 @@
 		C95DB9A4153DD7F900ACBA2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95DB98A153DD7F900ACBA2E /* UIKit.framework */; };
 		C95DB9A5153DD7F900ACBA2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95DB98C153DD7F900ACBA2E /* Foundation.framework */; };
 		C95DB9B0153DD7FA00ACBA2E /* TodolistWithFormsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C95DB9AF153DD7FA00ACBA2E /* TodolistWithFormsTests.m */; };
-		C95DB9BB153DD83800ACBA2E /* TodoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95DB9BA153DD83800ACBA2E /* TodoDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 /* Begin PBXFileReference section */
 		420668B116459CAD00233929 /* PlacemarkTodo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlacemarkTodo.h; sourceTree = "<group>"; };
 		420668B216459E8B00233929 /* PlacemarkTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacemarkTodo.m; sourceTree = "<group>"; };
+		420668B41646C17600233929 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		420668BD1646D9C600233929 /* TodoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailsViewController.m; sourceTree = "<group>"; };
 		4230D4F515989012001C1C06 /* tabmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabmap.png; sourceTree = "<group>"; };
 		4230D4F8159894F5001C1C06 /* MapViewPlacemarksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewPlacemarksController.h; sourceTree = "<group>"; };
 		4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewPlacemarksController.m; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 		C95DB9AE153DD7FA00ACBA2E /* TodolistWithFormsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodolistWithFormsTests.h; sourceTree = "<group>"; };
 		C95DB9AF153DD7FA00ACBA2E /* TodolistWithFormsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodolistWithFormsTests.m; sourceTree = "<group>"; };
 		C95DB9B9153DD83800ACBA2E /* TodoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDetailsViewController.h; sourceTree = "<group>"; };
-		C95DB9BA153DD83800ACBA2E /* TodoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 		C95DB97B153DD7F700ACBA2E = {
 			isa = PBXGroup;
 			children = (
+				420668B41646C17600233929 /* Default-568h@2x.png */,
 				42F0CE891642E038003697DF /* libsystem_notify.dylib */,
 				423F24A216413D2300B40D0A /* AudioToolbox.framework */,
 				42CAD0CC1587316400572FC1 /* CoreLocation.framework */,
@@ -294,7 +297,7 @@
 				C9076575153E2339008C7F12 /* Todo.h */,
 				C9076576153E2339008C7F12 /* Todo.m */,
 				C95DB9B9153DD83800ACBA2E /* TodoDetailsViewController.h */,
-				C95DB9BA153DD83800ACBA2E /* TodoDetailsViewController.m */,
+				420668BD1646D9C600233929 /* TodoDetailsViewController.m */,
 				C9076577153E2339008C7F12 /* Todolist.h */,
 				C9076578153E2339008C7F12 /* Todolist.m */,
 				C95DB999153DD7F900ACBA2E /* TodolistAppDelegate.h */,
@@ -422,6 +425,7 @@
 				4241350515A62EDF00A147D4 /* delete.png in Resources */,
 				4241350615A62EDF00A147D4 /* delete_over.png in Resources */,
 				4241350715A62EDF00A147D4 /* map.png in Resources */,
+				420668B51646C17600233929 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +467,6 @@
 				42BA7D2C15A3605D00F7C118 /* SBJSON.m in Sources */,
 				C95DB997153DD7F900ACBA2E /* main.m in Sources */,
 				C95DB99B153DD7F900ACBA2E /* TodolistAppDelegate.m in Sources */,
-				C95DB9BB153DD83800ACBA2E /* TodoDetailsViewController.m in Sources */,
 				C9076579153E2339008C7F12 /* Todo.m in Sources */,
 				C907657A153E2339008C7F12 /* Todolist.m in Sources */,
 				C907657E153E2351008C7F12 /* TodolistBackendAccessorImpl.m in Sources */,
@@ -476,6 +479,7 @@
 				4230D4FA159894F5001C1C06 /* MapViewPlacemarksController.m in Sources */,
 				42BA7D2B15A340C500F7C118 /* ServerAccess.m in Sources */,
 				420668B316459E8B00233929 /* PlacemarkTodo.m in Sources */,
+				420668BE1646D9C600233929 /* TodoDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

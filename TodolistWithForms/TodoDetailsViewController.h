@@ -38,7 +38,7 @@
 
 - (id) initWithEditMode:(BOOL)editable;
 
-- (IBAction)hideKeyboard:(id)sender;
+- (IBAction) hideKeyboard:(id)sender;
 
 - (IBAction) editDate: (id) sender; 
 
@@ -48,17 +48,11 @@
 
 - (IBAction) swipeBack:(UISwipeGestureRecognizer *)sender;
 
-- (IBAction)swipeToPreviousTodo:(UISwipeGestureRecognizer *)sender;
+- (IBAction) swipeToPreviousTodo:(UISwipeGestureRecognizer *)sender;
 
-- (IBAction)swipeToNextTodo:(UISwipeGestureRecognizer *)sender;
-
-- (IBAction) handleMainButtonClick: (id) sender; 
+- (IBAction) swipeToNextTodo:(UISwipeGestureRecognizer *)sender;
 
 - (void) displayDueAtLabelButton;
-
-- (void) displayDoneLabelButton;
-
-- (void) displayEditButton;
 
 - (void) saveTodo;
 

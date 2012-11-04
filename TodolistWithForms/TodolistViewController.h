@@ -17,7 +17,7 @@
 @protocol ITodoActionsDelegate <NSObject> 
 
 // this is not used currently
-- (void) saveTodo:(id<ITodo>)todo;
+- (BOOL) saveTodo:(id<ITodo>)todo;
 
 - (void) editTodo:(id<ITodo>)todo;
 

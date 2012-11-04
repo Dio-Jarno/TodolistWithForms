@@ -24,6 +24,7 @@ static Logger* logger;
 
 - (id) init {
     url = @"http://Arvids-MacBook-Air.local:8080/TodoApp/index?";
+    //url = @"http://italia.heliohost.org:8080/TodoApp/index?";
     [logger debug:@"ServerAccess initialized with url: %@", url];
     return self;
 }
@@ -38,26 +39,36 @@ static Logger* logger;
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
     NSError *error;
-    NSURLResponse *response;
+    NSURLResponse *response = nil;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    NSString *json_string = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-    [logger debug:@"Fetched data from server: %@", json_string];
-    
-    id<ITodo> todo;
-    MKPlacemark* placemark = NULL;
-    SBJSON *parser = [[SBJSON alloc] init];
-    NSArray *todoObjects = [parser objectWithString:json_string error:nil];
-    
-    for (NSDictionary *todoObject in todoObjects) {
-        [logger debug:@"JSON-Object: %@", todoObject];
-        if ([[todoObject objectForKey:@"placemark_latitude"] floatValue] != 0.0 && 
-            [[todoObject objectForKey:@"placemark_longitude"] floatValue] != 0.0) {
-            placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([[todoObject objectForKey:@"placemark_latitude"] floatValue], [[todoObject objectForKey:@"placemark_longitude"] floatValue]) addressDictionary:nil];
+    if (urlData == nil) {
+        [logger error:@"No connection to server. %@"];
+        if (error != nil) {
+            [logger error:@"Could not load data from server. %@"];
+            //[todolist release];
+            return NULL;
         }
-        todo = [[Todo alloc] initForId:[[todoObject objectForKey:@"id"] intValue] andName:[todoObject objectForKey:@"name"] andPlace:[todoObject objectForKey:@"place"] andPlacemark:placemark andDetails:[todoObject objectForKey:@"details"] andDueAtString:[todoObject objectForKey:@"dueAt"]];
-        [todolist addTodo:todo];
+        return NULL;
+    } else {
+        NSString *json_string = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        [logger debug:@"Fetched data from server: %@", json_string];
+        
+        id<ITodo> todo;
+        MKPlacemark* placemark = NULL;
+        SBJSON *parser = [[SBJSON alloc] init];
+        NSArray *todoObjects = [parser objectWithString:json_string error:nil];
+        
+        for (NSDictionary *todoObject in todoObjects) {
+            [logger debug:@"JSON-Object: %@", todoObject];
+            if ([[todoObject objectForKey:@"placemark_latitude"] floatValue] != 0.0 && 
+                [[todoObject objectForKey:@"placemark_longitude"] floatValue] != 0.0) {
+                placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([[todoObject objectForKey:@"placemark_latitude"] floatValue], [[todoObject objectForKey:@"placemark_longitude"] floatValue]) addressDictionary:nil];
+            }
+            todo = [[Todo alloc] initForId:[[todoObject objectForKey:@"id"] intValue] andName:[todoObject objectForKey:@"name"] andPlace:[todoObject objectForKey:@"place"] andPlacemark:placemark andDetails:[todoObject objectForKey:@"details"] andDueAtString:[todoObject objectForKey:@"dueAt"]];
+            [todolist addTodo:todo];
+        }
+        return todolist;
     }
-    return todolist;
 }
 
 - (int) addTodo:(id <ITodo>) todo {
@@ -69,8 +80,8 @@ static Logger* logger;
     [postString appendString:[todo name]];
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSError *error;
-    NSURLResponse *response;
+    NSError *error = nil;
+    NSURLResponse *response = nil;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     NSString *result = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
     [logger debug:@"Fetched todo id from server: %@", result];
@@ -79,7 +90,7 @@ static Logger* logger;
     return ID;
 }
 
-- (void) updateTodo:(id <ITodo>) todo {
+- (BOOL) updateTodo:(id <ITodo>) todo {
     MKPlacemark* placemark = [todo placemark];
     CLLocationCoordinate2D placemarkCoordinate = [placemark coordinate];
     NSString * done = [todo done] ? @"true" : @"false";
@@ -106,12 +117,16 @@ static Logger* logger;
     [postString appendString:json];
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSError *error;
-    NSURLResponse *response;
+    NSError *error = nil;
+    NSURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        return FALSE;
+    }
+    return TRUE;
 }
 
-- (void) deleteTodo:(id <ITodo>) todo {
+- (BOOL) deleteTodo:(id <ITodo>) todo {
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:[self url]]];
     [request setHTTPMethod:@"POST"];
@@ -120,9 +135,13 @@ static Logger* logger;
     [postString appendString:[NSString stringWithFormat:@"%d",[todo ID]]];
     [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSError *error;
-    NSURLResponse *response;
+    NSError *error = nil;
+    NSURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        return FALSE;
+    }
+    return TRUE;
 }
 
 

@@ -33,8 +33,8 @@ static Logger* logger;
     if (todolist == NULL) {
         [logger debug:@"loadTodolist: list has not been loaded yet."];
         todolist = [serverAccess loadTodos];
+        //[logger debug:@"loadTodolist: list is: %@", todolist];
     }
-    [logger debug:@"loadTodolist: list is: %@", todolist];
     return todolist;
 }
 

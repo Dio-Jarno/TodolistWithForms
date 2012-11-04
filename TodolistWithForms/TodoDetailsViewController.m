@@ -16,6 +16,8 @@
 // class attribute
 static Logger* logger;
 
+UIActivityIndicatorView *activityIndicator;
+
 // static initialiser
 + (void)initialize {
     logger = [[Logger alloc] initForClass:[TodoDetailsViewController class]];    
@@ -81,7 +83,8 @@ static Logger* logger;
         } else if ([placemark subLocality] != NULL && ![[placemark subLocality] isEqual:@""]) {
             [placeField setText:[placemark subLocality]];
         }
-        [self saveTodo];
+        [activityIndicator startAnimating];
+        [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:NULL];
     }
 }
 
@@ -104,14 +107,20 @@ static Logger* logger;
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
     
-    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(toggleEditMode)];
-    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(toggleEditMode)];
+    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(startEdit)];
+    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(stopEdit)];
     
     if (editable) {
         self.navigationItem.rightBarButtonItem = doneButton;
     } else {
         self.navigationItem.rightBarButtonItem = editButton;
     }
+    
+    activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [activityIndicator setColor:[UIColor blackColor]];
+
+    activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
+    [self.view addSubview:activityIndicator];
 }
 
 - (void) loadData {
@@ -136,7 +145,6 @@ static Logger* logger;
 
 - (void) viewWillDisappear:(BOOL)animated {
     [logger lifecycle:@"viewWillDisappear. todo is: %@", todo];
-    [self saveTodo];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -161,7 +169,8 @@ static Logger* logger;
 - (IBAction)toggleDone:(id)sender {
     [logger debug:@"toggleDone"];
     [todo setDone:![todo done]];
-    [self saveTodo];
+    [activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:NULL];
 }
 
 - (IBAction)showMap:(id)sender {
@@ -184,30 +193,34 @@ static Logger* logger;
 
 - (IBAction)swipeToPreviousTodo:(UISwipeGestureRecognizer *) sender {
     [logger info:@"Swipe down done."];
-    [UIView animateWithDuration:0.4
-            animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y + self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
-            completion:^(BOOL finished) {
-                         self.view.frame = CGRectMake(0, 0 - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
-                         [self loadPreviousTodo];
-                         [UIView animateWithDuration:0.4
-                                 animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y + self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
-                                 completion:^(BOOL finished) {
-                         }];
-    }];
+    if (!editable) {
+        [UIView animateWithDuration:0.4
+                animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y + self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
+                completion:^(BOOL finished) {
+                             self.view.frame = CGRectMake(0, 0 - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+                             [self loadPreviousTodo];
+                             [UIView animateWithDuration:0.4
+                                     animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y + self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
+                                     completion:^(BOOL finished) {
+                             }];
+        }];
+    }
 }
 
 - (IBAction)swipeToNextTodo:(UISwipeGestureRecognizer *) sender {
     [logger info:@"Swipe up done."];
-    [UIView animateWithDuration:0.4
-            animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
-            completion:^(BOOL finished) {
-                         self.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
-                         [self loadNextTodo];
-                         [UIView animateWithDuration:0.4
-                                 animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
-                                 completion:^(BOOL finished) {
-                          }];
-    }];    
+    if (!editable) {
+        [UIView animateWithDuration:0.4
+                animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
+                completion:^(BOOL finished) {
+                             self.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+                             [self loadNextTodo];
+                             [UIView animateWithDuration:0.4
+                                     animations:^{self.view.frame = CGRectMake(0, self.view.frame.origin.y - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);}
+                                     completion:^(BOOL finished) {
+                              }];
+        }];
+    }
 }
 
 - (void)loadPreviousTodo {
@@ -230,6 +243,15 @@ static Logger* logger;
     }
     [self setTodo:newTodo];
     [self loadData];
+}
+
+- (void) startEdit {
+    [self toggleEditMode];
+}
+
+- (void) stopEdit {
+    [activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:NULL];
 }
 
 #pragma methods used by the actions
@@ -263,7 +285,11 @@ static Logger* logger;
     
     // dueAt
     //[todo setDueAt:[detailsView text]];
-    [actionsDelegate saveTodo:todo];
+    BOOL successful = [actionsDelegate saveTodo:todo];
+    if (successful) {
+        [self toggleEditMode];
+    }
+    [activityIndicator stopAnimating];
 }
 
 #pragma update ui element content
