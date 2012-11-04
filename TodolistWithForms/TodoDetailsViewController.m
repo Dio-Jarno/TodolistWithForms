@@ -11,12 +11,13 @@
 
 @implementation TodoDetailsViewController
 
-@synthesize todo, editable, editButton, doneButton, actionsDelegate, todolist, mapViewController;
+@synthesize todo, editable, successful, editButton, doneButton, actionsDelegate, todolist, mapViewController;
 
 // class attribute
 static Logger* logger;
 
 UIActivityIndicatorView *activityIndicator;
+dispatch_group_t group;
 
 // static initialiser
 + (void)initialize {
@@ -107,8 +108,8 @@ UIActivityIndicatorView *activityIndicator;
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
     
-    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(startEdit)];
-    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(stopEdit)];
+    editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(startEditMode)];
+    doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishEditMode)];
     
     if (editable) {
         self.navigationItem.rightBarButtonItem = doneButton;
@@ -245,29 +246,31 @@ UIActivityIndicatorView *activityIndicator;
     [self loadData];
 }
 
-- (void) startEdit {
-    [self toggleEditMode];
+- (void) startEditMode {
+    [nameField setEnabled:YES];
+    [placeField setEnabled:YES];
+    [detailsView setEditable:YES];
+    [dueAtLabelButton setEnabled:YES];
+    
+    self.navigationItem.rightBarButtonItem = doneButton;
 }
 
-- (void) stopEdit {
+- (void) finishEditMode {
+    group = dispatch_group_create();
     [activityIndicator startAnimating];
-    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:NULL];
-}
-
-#pragma methods used by the actions
-- (void)toggleEditMode {
-    [logger debug:@"toggleEditMode"];
+    dispatch_group_enter(group);
+    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:group];
+    while (dispatch_group_wait(group, DISPATCH_TIME_NOW)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.f]];
+    }
+    dispatch_release(group);
     
-    editable = !editable;
-    
-    [nameField setEnabled:editable];
-    [placeField setEnabled:editable];
-    [detailsView setEditable:editable];
-    [dueAtLabelButton setEnabled:editable];
-    
-    if (editable) {
-        self.navigationItem.rightBarButtonItem = doneButton;
-    } else {
+    if (successful) {
+        [nameField setEnabled:NO];
+        [placeField setEnabled:NO];
+        [detailsView setEditable:NO];
+        [dueAtLabelButton setEnabled:NO];
+        
         self.navigationItem.rightBarButtonItem = editButton;
     }
 }
@@ -283,13 +286,10 @@ UIActivityIndicatorView *activityIndicator;
     }
     [todo setDetails:[detailsView text]];
     
-    // dueAt
-    //[todo setDueAt:[detailsView text]];
-    BOOL successful = [actionsDelegate saveTodo:todo];
-    if (successful) {
-        [self toggleEditMode];
-    }
+    successful = [actionsDelegate saveTodo:todo];
+
     [activityIndicator stopAnimating];
+    dispatch_group_leave(group);
 }
 
 #pragma update ui element content

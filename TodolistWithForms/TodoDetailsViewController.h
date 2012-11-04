@@ -27,6 +27,8 @@
 
 @property (nonatomic) BOOL editable;
 
+@property (nonatomic) BOOL successful;
+
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 @property (nonatomic, retain) UIBarButtonItem *doneButton;
 
