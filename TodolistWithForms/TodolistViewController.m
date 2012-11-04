@@ -89,7 +89,7 @@ static Logger* logger;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
     locationManager.pausesLocationUpdatesAutomatically = NO;
-    [self startGPS];
+    //[self startGPS];
     
     // set the activity indicator
     if (!activityIndicator) {

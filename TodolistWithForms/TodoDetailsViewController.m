@@ -129,11 +129,13 @@ static Logger* logger;
 
 - (void)viewDidUnload {
     [super viewDidUnload];
+    [logger lifecycle:@"viewDidUnload. todo is: %@", todo];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    [logger lifecycle:@"viewWillDisappear. todo is: %@", todo];
     [self saveTodo];
 }
 
