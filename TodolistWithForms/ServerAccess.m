@@ -42,10 +42,7 @@ static Logger* logger;
     NSURLResponse *response = nil;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (urlData == nil) {
-        [logger error:@"No connection to server. %@"];
         if (error != nil) {
-            [logger error:@"Could not load data from server. %@"];
-            //[todolist release];
             return NULL;
         }
         return NULL;

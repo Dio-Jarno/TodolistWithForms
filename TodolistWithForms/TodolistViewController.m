@@ -88,7 +88,7 @@ static Logger* logger;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    locationManager.pausesLocationUpdatesAutomatically = NO;
+    //locationManager.pausesLocationUpdatesAutomatically = NO;
     [self startGPS];
     
     // set the activity indicator
@@ -99,11 +99,15 @@ static Logger* logger;
     activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
     [self.view addSubview:activityIndicator];
     
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh  target:self action:@selector(syncLoadTodolist)];
+    self.navigationItem.leftBarButtonItem = refreshButton;
+    
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(createTodo:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     // start an asynchronous thread for loading the todolist
-    [NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:NULL];
+    //[NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:NULL];
+    [self syncLoadTodolist];
 }
 
 - (void)viewDidUnload {
@@ -135,14 +139,12 @@ static Logger* logger;
 }
 
 #pragma custom methods for initialising / refreshing the views
-- (void) asyncLoadTodolist {
-    [logger debug:@"asyncLoadTodolist"];
-    //[NSThread sleepForTimeInterval:1.5];
+- (void) syncLoadTodolist {
     [activityIndicator startAnimating];
     Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
     [activityIndicator stopAnimating];
     if (_todolist != NULL) {
-        [logger debug:@"asyncLoadTodolist: done. stop animation and refresh todolist"];
+        [logger debug:@":done"];
         [self setTodolist:_todolist];
         [self refreshTodolist];
     } else {
