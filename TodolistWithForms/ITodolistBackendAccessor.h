@@ -13,6 +13,8 @@
 
 - (Todolist*) loadTodolist;
 
+- (Todolist*) getTodolist;
+
 - (id<ITodo>) createTodoForName:(NSString*)name; 
 
 - (void) deleteTodo:(id<ITodo>)todo;

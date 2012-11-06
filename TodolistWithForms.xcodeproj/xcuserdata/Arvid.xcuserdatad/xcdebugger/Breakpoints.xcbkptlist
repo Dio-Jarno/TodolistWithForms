@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/TodolistViewController.m"
-         timestampString = "373812610.468595"
+         timestampString = "373920576.217296"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
+         startingLineNumber = "233"
+         endingLineNumber = "233"
          landmarkName = "-longPress:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/TodolistViewController.m"
-         timestampString = "373812610.468595"
+         timestampString = "373920576.217296"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
          landmarkName = "-syncLoadTodolist"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/TodolistViewController.m"
-         timestampString = "373812610.468595"
+         timestampString = "373920576.217296"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
+         startingLineNumber = "166"
+         endingLineNumber = "166"
          landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -123,11 +123,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/MapViewPlacemarksController.m"
-         timestampString = "373713563.407826"
+         timestampString = "373920328.524201"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -136,12 +136,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/MapViewPlacemarksController.m"
-         timestampString = "373713563.407826"
+         timestampString = "373920328.524201"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
-         landmarkName = "-mapView:viewForAnnotation:"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -149,12 +149,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/MapViewPlacemarksController.m"
-         timestampString = "373713563.407826"
+         timestampString = "373920328.524201"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
-         landmarkName = "-mapView:viewForAnnotation:"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -162,11 +162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TodolistWithForms/TodolistViewController.m"
-         timestampString = "373812610.468595"
+         timestampString = "373920576.217296"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "345"
-         endingLineNumber = "345"
+         startingLineNumber = "347"
+         endingLineNumber = "347"
          landmarkName = "@implementation TodolistViewController"
          landmarkType = "3">
       </FileBreakpoint>

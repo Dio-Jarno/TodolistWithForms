@@ -88,8 +88,7 @@ static Logger* logger;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    //locationManager.pausesLocationUpdatesAutomatically = NO;
-    [self startGPS];
+    //[self startGPS];
     
     // set the activity indicator
     if (!activityIndicator) {
@@ -105,8 +104,7 @@ static Logger* logger;
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(createTodo:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
-    // start an asynchronous thread for loading the todolist
-    //[NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:NULL];
+    // loading the todolist
     [self syncLoadTodolist];
 }
 
@@ -254,11 +252,15 @@ static Logger* logger;
             deleteButtonImage = [UIImage imageNamed:@"delete.png"];
             [deleteButton setImage:deleteButtonImage forState:UIControlStateNormal];
             if (wasOverDelete) {
-                [dragCell setHidden:YES];
+                // delete todo
                 AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
                 [self deleteTodo:[dragCell todo]];
+                [UIView animateWithDuration:0.4
+                        animations:^{dragCell.frame = CGRectMake(deleteButton.frame.origin.x + 25, deleteButton.frame.origin.y + 10, 0, 0);}
+                        completion:^(BOOL finished) {[dragCell setHidden:YES];}
+                 ];
             } else {
-                //wieder in Liste zurück
+                // back in list
                 [UIView animateWithDuration:0.5
                         animations:^{dragCell.frame = CGRectMake(15, cellY, 290, 44);}
                         completion:^(BOOL finished) {

@@ -42,9 +42,9 @@ static Logger* logger;
     NSURLResponse *response = nil;
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (urlData == nil) {
-        if (error != nil) {
-            return NULL;
-        }
+        //if (error != nil) {
+        //    return NULL;
+        //}
         return NULL;
     } else {
         NSString *json_string = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];

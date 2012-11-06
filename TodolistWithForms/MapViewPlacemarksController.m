@@ -50,7 +50,8 @@ static Logger* logger;
     [logger debug:@"MapViewPlacemarksController - viewWillAppear"];
     [[self navigationItem] setTitle:@"Map"];
     dispatch_group_t group = dispatch_group_create();
-    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
+    //Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
+    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] getTodolist] retain];
     [self setTodolist:_todolist];
     [mapView removeAnnotations:[mapView annotations]];
     for (int i=0; i<[[self todolist] countTodos]; i++) {

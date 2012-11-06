@@ -25,16 +25,20 @@ static Logger* logger;
     [super dealloc];
 }
 
+- (Todolist*) getTodolist {
+    return todolist;
+}
+
 - (Todolist*) loadTodolist {
     [logger debug:@"loadTodolist"];
     serverAccess = [[ServerAccess alloc] init];
     
     // any complex datatype value can be used as a boolean expression
-    if (todolist == NULL) {
+    //if (todolist == NULL) {
         [logger debug:@"loadTodolist: list has not been loaded yet."];
         todolist = [serverAccess loadTodos];
-        //[logger debug:@"loadTodolist: list is: %@", todolist];
-    }
+        [logger debug:@"loadTodolist: list is: %@", todolist];
+    //}
     return todolist;
 }
 
