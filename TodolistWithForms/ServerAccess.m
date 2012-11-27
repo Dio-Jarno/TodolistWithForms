@@ -23,8 +23,7 @@ static Logger* logger;
 }
 
 - (id) init {
-    url = @"http://Arvids-MacBook-Air.local:8080/TodoApp/index?";
-    //url = @"http://italia.heliohost.org:8080/TodoApp/index?";
+    url = @"http://arvids-macbook-air.local:8080/TodoApp/index?";
     [logger debug:@"ServerAccess initialized with url: %@", url];
     return self;
 }
@@ -40,11 +39,13 @@ static Logger* logger;
     
     NSError *error;
     NSURLResponse *response = nil;
+    [logger debug:@"Send request to server"];
     NSData *urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     if (urlData == nil) {
         //if (error != nil) {
         //    return NULL;
         //}
+        [logger debug:@"No data fetched"];
         return NULL;
     } else {
         NSString *json_string = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];

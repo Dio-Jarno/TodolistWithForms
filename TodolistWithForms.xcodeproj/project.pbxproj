@@ -18,6 +18,7 @@
 		4241350615A62EDF00A147D4 /* delete_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 4241350215A62EDF00A147D4 /* delete_over.png */; };
 		4241350715A62EDF00A147D4 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 4241350315A62EDF00A147D4 /* map.png */; };
 		424252C9158F63A5000E2E79 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 424252C8158F63A5000E2E79 /* icon.png */; };
+		428E88E4166516AA0048DE2B /* LocationManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428E88E3166516AA0048DE2B /* LocationManagerController.m */; };
 		4296C73215A447B0008CF933 /* TodoDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4296C73315A447B0008CF933 /* TodoDetailsView.xib */; };
 		42BA7D1F15A33B4C00F7C118 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BA7D1415A33B4C00F7C118 /* NSString+SBJSON.m */; };
 		42BA7D2015A33B4C00F7C118 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BA7D1615A33B4C00F7C118 /* NSObject+SBJSON.m */; };
@@ -82,6 +83,8 @@
 		4241350215A62EDF00A147D4 /* delete_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_over.png; sourceTree = "<group>"; };
 		4241350315A62EDF00A147D4 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
 		424252C8158F63A5000E2E79 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		428E88E2166516AA0048DE2B /* LocationManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerController.h; sourceTree = "<group>"; };
+		428E88E3166516AA0048DE2B /* LocationManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManagerController.m; sourceTree = "<group>"; };
 		4296C73315A447B0008CF933 /* TodoDetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoDetailsView.xib; sourceTree = "<group>"; };
 		42BA7D1215A33B4C00F7C118 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		42BA7D1315A33B4C00F7C118 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
@@ -169,6 +172,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		428E88E01665088D0048DE2B /* backend */ = {
+			isa = PBXGroup;
+			children = (
+				C907657B153E2350008C7F12 /* ITodolistBackendAccessor.h */,
+				C907657C153E2351008C7F12 /* TodolistBackendAccessorImpl.h */,
+				C907657D153E2351008C7F12 /* TodolistBackendAccessorImpl.m */,
+				42BA7D2915A340C500F7C118 /* ServerAccess.h */,
+				42BA7D2A15A340C500F7C118 /* ServerAccess.m */,
+			);
+			name = backend;
+			sourceTree = "<group>";
+		};
+		428E88E11665163E0048DE2B /* location */ = {
+			isa = PBXGroup;
+			children = (
+				428E88E2166516AA0048DE2B /* LocationManagerController.h */,
+				428E88E3166516AA0048DE2B /* LocationManagerController.m */,
+			);
+			name = location;
+			sourceTree = "<group>";
+		};
+		428E88E516652C680048DE2B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C907657F153E235C008C7F12 /* ITodo.h */,
+				C9076575153E2339008C7F12 /* Todo.h */,
+				C9076576153E2339008C7F12 /* Todo.m */,
+				C9076577153E2339008C7F12 /* Todolist.h */,
+				C9076578153E2339008C7F12 /* Todolist.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
 		42BA7D1015A33B2700F7C118 /* json */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,22 +228,20 @@
 		42BA7D2515A33D4400F7C118 /* gui */ = {
 			isa = PBXGroup;
 			children = (
+				42CAD0C615871CF800572FC1 /* MapViewController.h */,
+				42CAD0C815871F5C00572FC1 /* MapViewController.m */,
+				4230D4F8159894F5001C1C06 /* MapViewPlacemarksController.h */,
+				4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */,
+				C95DB9B9153DD83800ACBA2E /* TodoDetailsViewController.h */,
+				420668BD1646D9C600233929 /* TodoDetailsViewController.m */,
+				C907658C153E94B0008C7F12 /* TodolistViewController.h */,
+				C907658D153E94B0008C7F12 /* TodolistViewController.m */,
 				C92257811541D61700EECBA8 /* TodoDetailsDatePickerView.xib */,
 				4296C73315A447B0008CF933 /* TodoDetailsView.xib */,
 				C9076590153E94C7008C7F12 /* TodolistView.xib */,
 				42DC318E1578A4AC002A4459 /* PlaceDetailsView.xib */,
 			);
 			name = gui;
-			sourceTree = "<group>";
-		};
-		C9076580153E23EB008C7F12 /* shared */ = {
-			isa = PBXGroup;
-			children = (
-				42BA7D2515A33D4400F7C118 /* gui */,
-				C92257741541B63000EECBA8 /* ui */,
-				C9076582153E2400008C7F12 /* logging */,
-			);
-			name = shared;
 			sourceTree = "<group>";
 		};
 		C9076581153E23F3008C7F12 /* resources */ = {
@@ -236,6 +270,8 @@
 		C92257741541B63000EECBA8 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				C92257791541CB9000EECBA8 /* TodoTableViewCell.h */,
+				C922577A1541CB9000EECBA8 /* TodoTableViewCell.m */,
 				C92257761541B65000EECBA8 /* GenericRespondingTableView.h */,
 				C92257771541B65000EECBA8 /* GenericRespondingTableView.m */,
 				C922577C1541D4FD00EECBA8 /* GenericDatePickerViewController.h */,
@@ -284,32 +320,17 @@
 		C95DB990153DD7F900ACBA2E /* TodolistWithForms */ = {
 			isa = PBXGroup;
 			children = (
+				428E88E516652C680048DE2B /* data */,
+				428E88E11665163E0048DE2B /* location */,
+				428E88E01665088D0048DE2B /* backend */,
+				C9076582153E2400008C7F12 /* logging */,
+				C92257741541B63000EECBA8 /* ui */,
+				42BA7D2515A33D4400F7C118 /* gui */,
 				42BA7D1015A33B2700F7C118 /* json */,
 				C95DB991153DD7F900ACBA2E /* Supporting Files */,
 				C9076581153E23F3008C7F12 /* resources */,
-				C9076580153E23EB008C7F12 /* shared */,
-				C907657F153E235C008C7F12 /* ITodo.h */,
-				C907657B153E2350008C7F12 /* ITodolistBackendAccessor.h */,
-				42CAD0C615871CF800572FC1 /* MapViewController.h */,
-				42CAD0C815871F5C00572FC1 /* MapViewController.m */,
-				4230D4F8159894F5001C1C06 /* MapViewPlacemarksController.h */,
-				4230D4F9159894F5001C1C06 /* MapViewPlacemarksController.m */,
-				C9076575153E2339008C7F12 /* Todo.h */,
-				C9076576153E2339008C7F12 /* Todo.m */,
-				C95DB9B9153DD83800ACBA2E /* TodoDetailsViewController.h */,
-				420668BD1646D9C600233929 /* TodoDetailsViewController.m */,
-				C9076577153E2339008C7F12 /* Todolist.h */,
-				C9076578153E2339008C7F12 /* Todolist.m */,
 				C95DB999153DD7F900ACBA2E /* TodolistAppDelegate.h */,
 				C95DB99A153DD7F900ACBA2E /* TodolistAppDelegate.m */,
-				C907657C153E2351008C7F12 /* TodolistBackendAccessorImpl.h */,
-				C907657D153E2351008C7F12 /* TodolistBackendAccessorImpl.m */,
-				C907658C153E94B0008C7F12 /* TodolistViewController.h */,
-				C907658D153E94B0008C7F12 /* TodolistViewController.m */,
-				C92257791541CB9000EECBA8 /* TodoTableViewCell.h */,
-				C922577A1541CB9000EECBA8 /* TodoTableViewCell.m */,
-				42BA7D2915A340C500F7C118 /* ServerAccess.h */,
-				42BA7D2A15A340C500F7C118 /* ServerAccess.m */,
 			);
 			path = TodolistWithForms;
 			sourceTree = "<group>";
@@ -480,6 +501,7 @@
 				42BA7D2B15A340C500F7C118 /* ServerAccess.m in Sources */,
 				420668B316459E8B00233929 /* PlacemarkTodo.m in Sources */,
 				420668BE1646D9C600233929 /* TodoDetailsViewController.m in Sources */,
+				428E88E4166516AA0048DE2B /* LocationManagerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +551,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -553,7 +575,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";

@@ -84,11 +84,7 @@ static Logger* logger;
     
     [logger lifecycle:@"initialiseViewOnAppearance"];
     
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
-    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    //[self startGPS];
+    //[[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     // set the activity indicator
     if (!activityIndicator) {
@@ -98,14 +94,15 @@ static Logger* logger;
     activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
     [self.view addSubview:activityIndicator];
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh  target:self action:@selector(syncLoadTodolist)];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh  target:self action:@selector(syncTodos)];
     self.navigationItem.leftBarButtonItem = refreshButton;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(createTodo:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     // loading the todolist
-    [self syncLoadTodolist];
+    [NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:nil];
+    //[self asyncLoadTodolist];
 }
 
 - (void)viewDidUnload {
@@ -136,8 +133,12 @@ static Logger* logger;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void) syncTodos {
+    [NSThread detachNewThreadSelector:@selector(asyncLoadTodolist) toTarget:self withObject:nil];
+}
+
 #pragma custom methods for initialising / refreshing the views
-- (void) syncLoadTodolist {
+- (void) asyncLoadTodolist {
     [activityIndicator startAnimating];
     Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] loadTodolist] retain];
     [activityIndicator stopAnimating];
@@ -374,99 +375,6 @@ static Logger* logger;
 - (void) editTodo:(id<ITodo>)todo {
     [logger debug:@"editTodo: %@", todo];    
     [self showDetailsForTodo:todo editable:true];
-}
-
-// check whether GPS is enabled
-- (BOOL) isGPSEnabled {
-    if (! ([CLLocationManager locationServicesEnabled]) || ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)) {
-        return NO;
-    }
-    return YES;
-}
-
-// function to start capture GPS, we check settings first to see if GPS is disabled before attempting to get GPS
-- (void) startGPS {
-    if([self isGPSEnabled]) {
-        // Location Services is not disabled, get it now
-        [locationManager startUpdatingLocation];
-        [logger lifecycle:@"location manager started"];
-    } else {
-        // Location Services is disabled, do sth here to tell user to enable it
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                  message:@"Please enable the location service for hole functionality."
-                                                  delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = [locations lastObject];
-    float latitude = location.coordinate.latitude;
-    float longitude = location.coordinate.longitude;
-    
-    [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
-    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
-    [logger info:@"location has changed"];
-    for (int i=0; i<[[self todolist] countTodos]; i++) {
-        id<ITodo> _todo = [[self todolist] todoAtPosition:i];
-        MKPlacemark* placemark = [_todo placemark];
-        if (placemark != NULL) {
-            CLLocationDistance distance = [location distanceFromLocation:[placemark location]];
-            if (distance < 1000.0) {
-                [logger info:@"there is a todo in the vicinity"];
-                if (![_todo done] && ![_todo notification]) {
-                    [self scheduleNotification:_todo];
-                }
-            }
-        }
-    }
-    //}
-}
-
-/*- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    int latitude = newLocation.coordinate.latitude;
-    int longitude = newLocation.coordinate.longitude;
-    [logger info:@"GPS data - latitude: %i longitude: %i", latitude, longitude];
-    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
-        [logger info:@"location has changed"];
-        for (int i=0; i<[[self todolist] countTodos]; i++) {
-            id<ITodo> _todo = [[self todolist] todoAtPosition:i];
-            MKPlacemark* placemark = [_todo placemark];
-            CLLocationDistance distance = [newLocation distanceFromLocation:[placemark location]];
-            if (distance < 1000.0) {
-                [logger info:@"there is a todo in the vicinity"];
-                if (![_todo done] && ![_todo notification]) {
-                    [self scheduleNotification:_todo];
-                }
-            }
-        }
-    //}
-}*/
-
-- (void)scheduleNotification:(id<ITodo>)todo {
-    [logger info:@"create notification for todo with id %d", [todo ID]];
-    //[[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    
-    NSMutableString *message = [NSMutableString stringWithString:@"The todo '"];
-    [message appendString:[todo name]];
-    [message appendString:@"' is in your vicinity."];
-    notification.alertBody = message;
-    notification.alertAction = @"Show me";
-    notification.soundName = UILocalNotificationDefaultSoundName;
-    notification.applicationIconBadgeNumber += 1;
-    
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:[todo name] forKey:@"todoName"];
-    notification.userInfo = userDict;
-        
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    [notification release];
-    
-    [todo setNotification:YES];
 }
 
 - (void) showError:(NSString *) message {

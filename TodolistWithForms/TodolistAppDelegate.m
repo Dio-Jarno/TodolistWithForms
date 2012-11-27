@@ -12,6 +12,7 @@
 #import "Logger.h"
 #import "TodolistBackendAccessorImpl.h"
 #import "MapViewPlacemarksController.h"
+#import "LocationManagerController.h"
 
 @implementation TodolistAppDelegate
 
@@ -22,7 +23,7 @@ static Logger* logger;
 
 // static initialiser
 + (void)initialize {
-    logger = [[Logger alloc] initForClass:[TodolistAppDelegate class]];    
+    logger = [[Logger alloc] initForClass:[TodolistAppDelegate class]];
 }
 
 #pragma object lifecycle
@@ -43,6 +44,8 @@ static Logger* logger;
     
     
     // custom initialisation
+    LocationManagerController *locationManagerController = [[LocationManagerController alloc] init];
+    [locationManagerController startGPS];
     
     // initialise the central backend accessor used by the view controllers
     [self initialiseBackendAccessor];
