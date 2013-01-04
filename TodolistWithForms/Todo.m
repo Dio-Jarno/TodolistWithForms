@@ -11,7 +11,7 @@
 
 @implementation Todo
 
-@synthesize ID, name, place, placemark, dueAt, details, done, notification;
+@synthesize ID, name, place, placemark, radius, dueAt, modifiedAt, details, done, notification;
 
 
 // class attribute
@@ -27,26 +27,30 @@ static Logger* logger;
 
 #pragma object lifecycle
 // instance method: constructor 1
-- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAt:(NSDate*)_date {
+- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andRadius:(int)_radius andDetails:(NSString*)_details andDueAt:(NSDate*)_date andModifiedAt:(NSDate*)_modifiedAt {
     self = [super init];
     [self setID:_id];
     [self setName:_name];
     [self setPlace:_place];
     [self setPlacemark:_placemark];
+    [self setRadius:_radius];
     [self setDetails:_details];
     [self setDueAt:_date];
+    [self setModifiedAt:_modifiedAt];
+    [self setChanged:NO];
     return self;
 }
 
 // instance method: constructor 2
-- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAtString:(NSString*)_date {
-    return [self initForId:_id andName:_name andPlace:_place andPlacemark:_placemark andDetails:_details andDueAt:[[Todo dateFormatter] dateFromString:_date]];
+- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andRadius:(int)_radius andDetails:(NSString*)_details andDueAtString:(NSString*)_date andModifiedAt:(NSDate*)_modifiedAt {
+    return [self initForId:_id andName:_name andPlace:_place andPlacemark:_placemark andRadius:_radius andDetails:_details andDueAt:[[Todo dateFormatter] dateFromString:_date] andModifiedAt:(NSDate*)_modifiedAt];
 }
 
 - (void) dealloc {
     [name release];
     [details release];
     [dueAt release];
+    [modifiedAt release];
     [placemark release];
     [super release];
     [super dealloc];
@@ -55,7 +59,7 @@ static Logger* logger;
 #pragma instance methods
 // instance method: toString
 - (NSString*) description {
-    return [NSString stringWithFormat:@"{%@ %i %@ %@ %@ %@ %@}",[super description], ID, name, place, details, dueAt, (done ? @"done" : @"pending")];    
+    return [NSString stringWithFormat:@"{%@ %i %@ %@ %i %@ %@ %@ %@}",[super description], ID, name, place, radius, details, dueAt, modifiedAt, (done ? @"done" : @"pending")];
 }
 
 - (NSString*) dueAtString {
@@ -71,7 +75,7 @@ static Logger* logger;
 // class method: obtain a date formatter 
 + (NSDateFormatter*) dateFormatter {
     NSDateFormatter* df = [[[NSDateFormatter alloc] init] autorelease]; 
-    df.dateFormat = @"MM/dd/yyyy hh:mm";
+    df.dateFormat = @"dd.MM.yyyy HH:mm";
     return df;
 }
 

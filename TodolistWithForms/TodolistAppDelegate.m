@@ -13,6 +13,7 @@
 #import "TodolistBackendAccessorImpl.h"
 #import "MapViewPlacemarksController.h"
 #import "LocationManagerController.h"
+#import "TestController.h"
 
 @implementation TodolistAppDelegate
 
@@ -133,6 +134,7 @@ static Logger* logger;
     [logger lifecycle:@"prepareRootViewController"];
     // create the TodolistViewController
     TodolistViewController* rootVC = [[TodolistViewController alloc] init];
+    //TestController* rootVC = [[TestController alloc] init];
     MapViewPlacemarksController *mapVC = [[MapViewPlacemarksController alloc] init];
     //[rootVC setTodo:[[backendAccessor loadTodolist] todoAtPosition:0]];
     

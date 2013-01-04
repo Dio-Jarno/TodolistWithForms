@@ -11,7 +11,7 @@
 
 @implementation TodoDetailsViewController
 
-@synthesize todo, editable, successful, editButton, doneButton, actionsDelegate, todolist, mapViewController;
+@synthesize todo, editable, editButton, doneButton, actionsDelegate, todolist, mapViewController;
 
 // class attribute
 static Logger* logger;
@@ -56,6 +56,7 @@ dispatch_group_t group;
     [todo release];
     [actionsDelegate release];
     [doneSwitch release];
+    [radiusField release];
     [super dealloc];
 }
 
@@ -84,7 +85,7 @@ dispatch_group_t group;
         } else if ([placemark subLocality] != NULL && ![[placemark subLocality] isEqual:@""]) {
             [placeField setText:[placemark subLocality]];
         }
-        [activityIndicator startAnimating];
+        //[activityIndicator startAnimating];
         [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:NULL];
     }
 }
@@ -97,6 +98,7 @@ dispatch_group_t group;
     // set myself as delegate for being notified about input events
     [nameField setDelegate:self];
     [placeField setDelegate:self];
+    [radiusField setDelegate:self];
     //[detailsView setDelegate:self];
     
     // populate the view elements with data
@@ -105,6 +107,7 @@ dispatch_group_t group;
     // control enablement
     [nameField setEnabled:editable];
     [placeField setEnabled:editable];
+    [radiusField setEnabled:editable];
     [detailsView setEditable:editable];
     [dueAtLabelButton setEnabled:editable];
     
@@ -132,12 +135,15 @@ dispatch_group_t group;
         [nameField setText:[todo name]];
     }
     [placeField setText:[todo place]];
+    [radiusField setText:[NSString stringWithFormat:@"%d",[todo radius]]];
     [detailsView setText:[todo details]];
     [self displayDueAtLabelButton];
     [doneSwitch setOn:[todo done]];
 }
 
 - (void)viewDidUnload {
+    [radiusField release];
+    radiusField = nil;
     [super viewDidUnload];
     [logger lifecycle:@"viewDidUnload. todo is: %@", todo];
     // Release any retained subviews of the main view.
@@ -246,33 +252,50 @@ dispatch_group_t group;
     [self loadData];
 }
 
+
 - (void) startEditMode {
-    [nameField setEnabled:YES];
-    [placeField setEnabled:YES];
-    [detailsView setEditable:YES];
-    [dueAtLabelButton setEnabled:YES];
+    [self changeEditable:(YES)];
+    [[self todo] setChanged:YES];
+    //editable = YES;
+    //[nameField setEnabled:YES];
+    //[placeField setEnabled:YES];
+    //[radiusField setEnabled:YES];
+    //[detailsView setEditable:YES];
+    //[dueAtLabelButton setEnabled:YES];
     
     self.navigationItem.rightBarButtonItem = doneButton;
 }
 
+- (void) changeEditable:(BOOL) _editable {
+    editable = _editable;
+    [nameField setEnabled:_editable];
+    [placeField setEnabled:_editable];
+    [radiusField setEnabled:_editable];
+    [detailsView setEditable:_editable];
+    [dueAtLabelButton setEnabled:_editable];
+}
+
 - (void) finishEditMode {
-    group = dispatch_group_create();
-    [activityIndicator startAnimating];
-    dispatch_group_enter(group);
-    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:group];
-    while (dispatch_group_wait(group, DISPATCH_TIME_NOW)) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.f]];
-    }
-    dispatch_release(group);
+    //group = dispatch_group_create();
+    //[activityIndicator startAnimating];
+    //dispatch_group_enter(group);
+    [NSThread detachNewThreadSelector:@selector(saveTodo) toTarget:self withObject:nil];
+    //while (dispatch_group_wait(group, DISPATCH_TIME_NOW)) {
+    //    [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1.f]];
+    //}
+    //dispatch_release(group);
     
-    if (successful) {
-        [nameField setEnabled:NO];
-        [placeField setEnabled:NO];
-        [detailsView setEditable:NO];
-        [dueAtLabelButton setEnabled:NO];
+    //if (successful) {
+        [self changeEditable:(NO)];
+        //editable = NO;
+        //[nameField setEnabled:NO];
+        //[placeField setEnabled:NO];
+        //[radiusField setEnabled:NO];
+        //[detailsView setEditable:NO];
+        //[dueAtLabelButton setEnabled:NO];
         
         self.navigationItem.rightBarButtonItem = editButton;
-    }
+    //}
 }
 
 - (void) saveTodo {
@@ -284,12 +307,26 @@ dispatch_group_t group;
     if ([mapViewController placemark] != NULL) {
         [todo setPlacemark:[mapViewController placemark]];
     }
+    if (![[radiusField text] isEqualToString:@""]) {
+        [todo setRadius:[[radiusField text] intValue]];
+    }
     [todo setDetails:[detailsView text]];
+    [todo setModifiedAt:[NSDate date]];
     
-    successful = [actionsDelegate saveTodo:todo];
+    [actionsDelegate saveTodo:todo];
 
-    [activityIndicator stopAnimating];
-    dispatch_group_leave(group);
+    //[activityIndicator stopAnimating];
+    //dispatch_group_leave(group);
+}
+
+- (void) showError:(NSString *) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                              message:message
+                                              delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 #pragma update ui element content

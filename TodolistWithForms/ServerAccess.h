@@ -15,11 +15,13 @@
 @property (nonatomic, retain) NSString* url;
 
 - (Todolist*) loadTodos;
+- (Todolist*) loadTodosSince:(NSDate*) timestamp;
 
 - (int) addTodo:(id <ITodo>) todo;
 
 - (BOOL) updateTodo:(id <ITodo>) todo;
 
 - (BOOL) deleteTodo:(id <ITodo>) todo;
+- (BOOL) deleteTodoWithId:(int) todoID;
 
 @end

@@ -6,21 +6,21 @@
 //  Copyright (c) 2012 de.fhb.mobile. All rights reserved.
 //
 
-#import "LocationManagerController.h"
+#import "TestController.h"
 #import "Logger.h"
 #import "TodolistAppDelegate.h"
 
-@implementation LocationManagerController
+@implementation TestController
 
 static Logger* logger;
 
 - (id) init {
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.distanceFilter = 10.0f; // whenever we move 10 meters
+    locationManager.distanceFilter = kCLDistanceFilterNone; // whenever we move
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
-    logger = [[Logger alloc] initForClass:[LocationManagerController class]];
+    logger = [[Logger alloc] initForClass:[TestController class]];
     return self;
 }
 
@@ -33,10 +33,10 @@ static Logger* logger;
     } else {
         // Location Services is disabled, do sth here to tell user to enable it
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                  message:@"Please enable the location service for hole functionality."
-                                                  delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
+                                                        message:@"Please enable the location service for hole functionality."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
         [alert release];
     }
@@ -55,8 +55,8 @@ static Logger* logger;
     [logger info:@"GPS data - latitude: %i longitude: %i", newLocation.coordinate.latitude, newLocation.coordinate.longitude];
     
     Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] getTodolist] retain];
-
-    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
+    
+    if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
         [logger info:@"location has changed"];
         for (int i=0; i<[_todolist countTodos]; i++) {
             id<ITodo> _todo = [_todolist todoAtPosition:i];
@@ -71,7 +71,7 @@ static Logger* logger;
                 }
             }
         }
-    //}
+    }
 }
 
 - (void) scheduleNotification:(id<ITodo>)todo {
@@ -96,4 +96,21 @@ static Logger* logger;
     [todo setNotification:YES];
 }
 
+- (void)viewDidLoad {
+    //self.exitButton = [[UIButton alloc] init];
+    
+    
+    [self.view addSubview:mapView];
+}
+
+- (void)dealloc {
+    [_scrollView release];
+    [_exitButton release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [self setScrollView:nil];
+    [self setExitButton:nil];
+    [super viewDidUnload];
+}
 @end

@@ -22,6 +22,9 @@
 - (MKPlacemark*) placemark;
 - (void) setPlacemark:(MKPlacemark*)placemark;
 
+- (int) radius;
+- (void) setRadius:(int)radius;
+
 - (NSString*) details;
 - (void) setDetails:(NSString*)details;
 
@@ -36,6 +39,12 @@
 
 - (BOOL) notification;
 - (void) setNotification:(BOOL)notification;
+
+- (BOOL) changed;
+- (void) setChanged:(BOOL)changed;
+
+- (NSDate*) modifiedAt;
+- (void) setModifiedAt:(NSDate*)modifiedAt;
 
 // instance methods
 - (NSString*) dueAtString;

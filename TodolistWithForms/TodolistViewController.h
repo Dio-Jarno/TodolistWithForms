@@ -16,7 +16,7 @@
 @protocol ITodoActionsDelegate <NSObject> 
 
 - (BOOL) saveTodo:(id<ITodo>)todo;
-
+- (BOOL) deleteTodo:(id<ITodo>)todo;
 - (void) editTodo:(id<ITodo>)todo;
 
 @end
@@ -42,6 +42,8 @@
     NSInteger cellRow;
     
     ServerAccess* serverAccess;
+    
+    NSMutableSet* deletedTodosSet;
 }
 
 @property (nonatomic, retain) Todolist* todolist;
@@ -50,7 +52,7 @@
 
 - (IBAction) createTodo: (id) sender; 
 
-- (IBAction) deleteTodo:(id<ITodo>)todo;
+- (BOOL) deleteTodo:(id<ITodo>)todo;
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)sender;
 
@@ -59,5 +61,7 @@
 - (void)refreshTodolist;
 
 - (void)showDetailsForTodo:(id<ITodo>)todo editable:(BOOL)editable;
+
+- (BOOL)synchronize;
 
 @end

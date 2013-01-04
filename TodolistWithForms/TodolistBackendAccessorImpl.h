@@ -14,6 +14,10 @@
 @interface TodolistBackendAccessorImpl : NSObject <ITodolistBackendAccessor> {
     
     @private Todolist* todolist;
+    
+    @private NSDate* timestamp;
+    
+    @private BOOL wasDiscarded;
 
     ServerAccess* serverAccess;
     

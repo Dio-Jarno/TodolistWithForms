@@ -18,6 +18,7 @@
     IBOutlet UITextField* nameField;
     IBOutlet UITextField* placeField;
     IBOutlet UIButton* placeDetailsButton;
+    IBOutlet UITextField *radiusField;
     IBOutlet UITextView* detailsView;
     IBOutlet UIButton* dueAtLabelButton;
     IBOutlet UISwitch *doneSwitch;
@@ -26,8 +27,6 @@
 @property (nonatomic, retain) id<ITodo> todo;
 
 @property (nonatomic) BOOL editable;
-
-@property (nonatomic) BOOL successful;
 
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 @property (nonatomic, retain) UIBarButtonItem *doneButton;
@@ -38,7 +37,7 @@
 
 @property (nonatomic, retain) MapViewController* mapViewController;
 
-- (id) initWithEditMode:(BOOL)editable;
+- (id) initWithEditMode:(BOOL)_editable;
 
 - (IBAction) hideKeyboard:(id)sender;
 
@@ -57,8 +56,6 @@
 - (void) displayDueAtLabelButton;
 
 - (void) saveTodo;
-
-- (void) toggleEditMode;
 
 - (void) loadPreviousTodo;
 

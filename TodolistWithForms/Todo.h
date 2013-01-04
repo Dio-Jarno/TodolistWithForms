@@ -17,19 +17,25 @@
 
 @property (nonatomic,retain) MKPlacemark* placemark;
 
+@property (nonatomic) int radius;
+
 @property (nonatomic,retain) NSString* details;
 
 @property (nonatomic,retain) NSDate* dueAt;
 
+@property (nonatomic,retain) NSDate* modifiedAt;
+
 @property (nonatomic) BOOL done;
+
+@property (nonatomic) BOOL changed;
 
 @property (nonatomic) int ID;
 
 @property (nonatomic) BOOL notification;
 
-- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAt:(NSDate*)_date;
+- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andRadius:(int)_radius andDetails:(NSString*)_details andDueAt:(NSDate*)_date andModifiedAt:(NSDate*) modifiedAt;
 
-- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andDetails:(NSString*)_details andDueAtString:(NSString*)_date;
+- (id) initForId:(int)_id andName:(NSString*)_name andPlace:(NSString*)_place andPlacemark:(MKPlacemark*)_placemark andRadius:(int)_radius andDetails:(NSString*)_details andDueAtString:(NSString*)_date andModifiedAt:(NSDate*) modifiedAt;
 
 - (NSString*) dueAtString;
 

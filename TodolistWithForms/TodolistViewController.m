@@ -31,6 +31,7 @@ static Logger* logger;
     [logger lifecycle:@"init"];
     self = [super initWithNibName:@"TodolistView" bundle:NULL];
     serverAccess = [[ServerAccess alloc] init];
+    deletedTodosSet = [[NSMutableSet alloc] init];
     return self;
 }
 
@@ -94,7 +95,7 @@ static Logger* logger;
     activityIndicator.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/3);
     [self.view addSubview:activityIndicator];
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh  target:self action:@selector(syncTodos)];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh  target:self action:@selector(synchronize)];
     self.navigationItem.leftBarButtonItem = refreshButton;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd  target:self action:@selector(createTodo:)];
@@ -147,7 +148,7 @@ static Logger* logger;
         [self setTodolist:_todolist];
         [self refreshTodolist];
     } else {
-        [self showError:@"Could not load todos from the internet. Please check your internet connection."];
+        [self showError:@"Could not load todos from the internet. Do you want to try again?"];
     }
 }
 
@@ -324,15 +325,30 @@ static Logger* logger;
     if ([[todo name] isEqualToString:@""]) {
         [todo setName:@" "];
     }
+    [todolist addTodo:todo];
     int ID = [serverAccess addTodo:todo];
     if (ID > 0) {
         [todo setID:ID];
-        [todolist addTodo:todo];
-        [self showDetailsForTodo:todo editable:true];
     } else {
-        [todolist deleteTodo:todo];
-        [self showError:@"Could not create new todo. Please check your internet connection."];
+        int IDTemp = -1;
+        id<ITodo> todoTemp;
+        for (int i=0; i<[todolist countTodos]; i++) {
+            todoTemp = [todolist todoAtPosition:i];
+            if ([todoTemp ID] < 0) {
+                if ([todoTemp ID] == IDTemp) {
+                    IDTemp--;
+                } else {
+                    break;
+                }
+            }
+        }
+        [todo setID:IDTemp];
+        NSMutableString *message = [NSMutableString stringWithString:@"Could not save todo '"];
+        [message appendString:[todo name]];
+        [message appendString:@"'. Do you want to try again in background?"];
+        [self showError:message];
     }
+    [self showDetailsForTodo:todo editable:true];
 }
 
 #pragma custom method for action handling
@@ -351,24 +367,35 @@ static Logger* logger;
     [activityIndicator startAnimating];
     BOOL successful = [serverAccess updateTodo:todo];
     [activityIndicator stopAnimating];
-    if (!successful) {
-        [self showError:@"Could not save todo. Please check your internet connection."];
+    if (successful) {
+        [todo setChanged:NO];
+        return TRUE;
+    } else {
+        NSMutableString *message = [NSMutableString stringWithString:@"Could not save todo '"];
+        [message appendString:[todo name]];
+        [message appendString:@"'. Do you want to try again in background?"];
+        [self showError:message];
         return FALSE;
     }
-    return TRUE;
 }
 
-- (void) deleteTodo:(id<ITodo>)todo {
+- (BOOL) deleteTodo:(id<ITodo>)todo {
     [logger debug:@"deleteTodo: %@", todo];
-    [[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] deleteTodo:todo];
+    //[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] deleteTodo:todo];
     [todolist deleteTodo:todo];
+    [self refreshTodolist];
     [activityIndicator startAnimating];
     BOOL successful = [serverAccess deleteTodo:todo];
     [activityIndicator stopAnimating];
-    if (!successful) {
-        [self showError:@"Could not delete todo. Please check your internet connection."];
+    if (successful) {
+        return TRUE;
     } else {
-        [self refreshTodolist];
+        [deletedTodosSet addObject:todo];
+        NSMutableString *message = [NSMutableString stringWithString:@"Could not delete todo '"];
+        [message appendString:[todo name]];
+        [message appendString:@"'. Do you want to try again in background?"];
+        [self showError:message];
+        return FALSE;
     }
 }
 
@@ -380,11 +407,67 @@ static Logger* logger;
 - (void) showError:(NSString *) message {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                               message:message
-                                              delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+                                              delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes", nil];
     [alert show];
     [alert release];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [logger error:@"YES pushed"];
+        if (![self synchronize]) {
+            [logger error:@"aborted synchronizing"];
+            [self showError:@"Could not synchronize todos. Do you want to try again?"];
+        }
+    }
+}
+
+- (BOOL) synchronize {
+    [logger info:@"start synchronizing..."];
+    id<ITodo> todo;
+    BOOL successful;
+    
+    // save deleted todos
+    for (int i=0; i<[deletedTodosSet count]; i++) {
+        [logger info:@"There are deleted todos to synchronize."];
+        todo = [todolist todoAtPosition:i];
+        successful = [serverAccess deleteTodo:todo];
+        if (!successful) {
+            return FALSE;
+        }
+    }
+    
+    // save new/updated todos
+    for (int i=0; i<[todolist countTodos]; i++) {
+        todo = [todolist todoAtPosition:i];
+        if ([todo ID] < 0) {
+            // save new todos
+            [logger info:@"There are new todos to synchronize."];
+            int ID = [serverAccess addTodo:todo];
+            if (ID > 0) {
+                [todo setID:ID];
+            } else {
+                return FALSE;
+            }
+        } else if ([todo changed]) {
+            // save updated todos
+            [logger info:@"There are updated todos to synchronize."];
+            successful = [serverAccess updateTodo:todo];
+            if (successful) {
+                [todo setChanged:NO];
+            } else {
+                return FALSE;
+            }
+        }
+    }
+    
+    // get updated todos
+    
+    [logger info:@"finished synchronizing"];
+    return TRUE;
+}
+
 
 @end
