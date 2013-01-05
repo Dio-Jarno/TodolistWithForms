@@ -52,26 +52,25 @@ static Logger* logger;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     
+    [logger info:@"location has changed"];
     [logger info:@"GPS data - latitude: %i longitude: %i", newLocation.coordinate.latitude, newLocation.coordinate.longitude];
     
-    Todolist* _todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] getTodolist] retain];
-
-    //if ((newLocation.coordinate.latitude != oldLocation.coordinate.latitude) && newLocation.coordinate.longitude != oldLocation.coordinate.longitude) {
-        [logger info:@"location has changed"];
-        for (int i=0; i<[_todolist countTodos]; i++) {
-            id<ITodo> _todo = [_todolist todoAtPosition:i];
-            MKPlacemark* placemark = [_todo placemark];
+    Todolist* todolist = [[[(TodolistAppDelegate*)[[UIApplication sharedApplication] delegate] backendAccessor] getTodolist] retain];
+    for (int i=0; i<[todolist countTodos]; i++) {
+        id<ITodo> todo = [todolist todoAtPosition:i];
+        if (![todo done] && [todo radius] > 0) {
+            MKPlacemark* placemark = [todo placemark];
             if (placemark != NULL) {
                 CLLocationDistance distance = [newLocation distanceFromLocation:[placemark location]];
-                if (distance < 1000.0) {
+                if (distance <= [todo radius]) {
                     [logger info:@"there is a todo in the vicinity"];
-                    if (![_todo done] && ![_todo notification]) {
-                        [self scheduleNotification:_todo];
+                    if (![todo notification]) {
+                        [self scheduleNotification:todo];
                     }
                 }
             }
         }
-    //}
+    }
 }
 
 - (void) scheduleNotification:(id<ITodo>)todo {

@@ -276,6 +276,23 @@ dispatch_group_t group;
 }
 
 - (void) finishEditMode {
+    NSString* location = [placeField text];
+    if (location != NULL && ![location isEqual:@""] && ![location isEqual:[[self todo] place]]) {
+        [logger info:@"save text of place field as placemark"];
+        CLGeocoder* geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:location
+                     completionHandler:^(NSArray* placemarks, NSError* error) {
+                         if (placemarks && placemarks.count > 0) {
+                             CLPlacemark *topResult = [placemarks objectAtIndex:0];
+                             MKPlacemark *newPlacemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+                             [[self todo] setPlacemark:newPlacemark];
+                         }
+                     }
+         ];
+    }
+    if ([location isEqual:@""]) {
+        [[self todo] setPlacemark:NULL];
+    }
     //group = dispatch_group_create();
     //[activityIndicator startAnimating];
     //dispatch_group_enter(group);

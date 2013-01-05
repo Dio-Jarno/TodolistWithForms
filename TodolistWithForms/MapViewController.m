@@ -20,16 +20,23 @@ static Logger* logger;
 }
 
 - (id) initWithPlacemark:(MKPlacemark*) _placemark {
-    [logger debug:@"MapViewController - initWithPlacemark"];
+    [logger lifecycle:@"initWithPlacemark"];
     [self setPlacemark:_placemark];
+    [self setLocation:NULL];
     [self updateTitle];
     return self;
 }
 
 - (id) initWithLocation:(NSString *) _location {
-    [logger debug:@"MapViewController - initWithLocation"];
+    [logger lifecycle:@"initWithLocation"];
     [self setLocation:_location];
+    [self setPlacemark:NULL];
     [[self navigationItem] setTitle:_location];
+    return self;
+}
+
+- (id) initWithUserLocation {
+    [logger lifecycle:@"initWithUserLocation"];
     return self;
 }
 
@@ -39,11 +46,6 @@ static Logger* logger;
     } else if ([[self placemark] subLocality] != NULL && ![[[self placemark] subLocality] isEqual:@""]) {
         [[self navigationItem] setTitle:[[self placemark] subLocality]];
     }
-}
-
-- (id) initWithUserLocation {
-    [logger debug:@"MapViewController - initWithUserLocation"];
-    return self;
 }
 
 - (void)viewDidLoad {
@@ -66,16 +68,17 @@ static Logger* logger;
 - (void)mapView:(MKMapView *)_mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     CLLocationAccuracy accuracy = userLocation.location.horizontalAccuracy;
     if (accuracy && placemark == NULL) {
-        [logger debug:@"user location: %f",[[mapView userLocation] coordinate]];
+        [logger debug:@"user location changed to: %f",[[mapView userLocation] coordinate]];
         [_mapView setRegion:MKCoordinateRegionMakeWithDistance([[_mapView userLocation] coordinate], 2000, 2000) animated:YES];
-        placemark = [[MKPlacemark alloc] initWithCoordinate:[[_mapView userLocation] coordinate] addressDictionary:nil];
-        [mapView addAnnotation:placemark];
+        //placemark = [[MKPlacemark alloc] initWithCoordinate:[[_mapView userLocation] coordinate] addressDictionary:nil];
+        //[mapView addAnnotation:placemark];
     }
 }
 
 - (void)displayMap {
+    [logger info:@"displayMap"];
     if (placemark != NULL) {
-        [logger debug:@"placemark location: %f",[[placemark location] coordinate]];
+        [logger info:@"placemark location: %f",[[placemark location] coordinate]];
         CLGeocoder* geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:placemark.location
                   completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -88,6 +91,7 @@ static Logger* logger;
                   }
          ];
     } else if (location != NULL && ![location isEqual:@""]) {
+        [logger info:@"show locationString as placemark"];
         CLGeocoder* geocoder = [[CLGeocoder alloc] init];
         [geocoder geocodeAddressString:[self location]
                      completionHandler:^(NSArray* placemarks, NSError* error) {
@@ -101,7 +105,7 @@ static Logger* logger;
                      }
          ];
         } else {
-            [logger debug:@"user location: %f",[[mapView userLocation] coordinate]];
+            [logger info:@"user location: %f",[[mapView userLocation] coordinate]];
             [mapView setRegion:MKCoordinateRegionMakeWithDistance([[mapView userLocation] coordinate], 2000, 2000) animated:YES];
         }
     [activityIndicator stopAnimating];
@@ -112,19 +116,31 @@ static Logger* logger;
         [logger debug:@"Long press began on map."];
         CGPoint touchPoint = [sender locationInView:[sender view]];
         CLLocationCoordinate2D touchMapCoordinate = [mapView convertPoint:touchPoint toCoordinateFromView:mapView];
-        MKReverseGeocoder *reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:touchMapCoordinate];
-        reverseGeocoder.delegate = self;
-        [reverseGeocoder start];
+        CLLocation* touchLocation = [[CLLocation alloc] initWithLatitude:touchMapCoordinate.latitude longitude:touchMapCoordinate.longitude];
+        CLGeocoder* geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:touchLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+            CLPlacemark *topResult = [placemarks objectAtIndex:0];
+            MKPlacemark *newPlacemark = [[MKPlacemark alloc] initWithPlacemark:topResult];
+            [logger debug:@"Address of placemark is: %@",newPlacemark.addressDictionary];
+            [mapView removeAnnotations:[mapView annotations]];
+            [mapView addAnnotation:newPlacemark];
+            [self setPlacemark:newPlacemark];
+            [self updateTitle];
+        }];
+        
+        //MKReverseGeocoder *reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:touchMapCoordinate];
+        //reverseGeocoder.delegate = self;
+        //[reverseGeocoder start];
     }
 }
-
+/*
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)_placemark { 
     [logger debug:@"Address of placemark is: %@",_placemark.addressDictionary];
     [mapView removeAnnotations:[mapView annotations]];
     [mapView addAnnotation:_placemark];
     [self setPlacemark:_placemark];
     [self updateTitle];
-}
+}*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.

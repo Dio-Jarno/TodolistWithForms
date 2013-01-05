@@ -23,7 +23,7 @@ static Logger* logger;
 }
 
 - (id) init {
-    [logger debug:@"MapViewPlacemarksController - init"];
+    [logger lifecycle:@"MapViewPlacemarksController - init"];
     return self;
 }
 

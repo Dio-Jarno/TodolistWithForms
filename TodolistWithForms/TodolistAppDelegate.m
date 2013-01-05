@@ -13,7 +13,6 @@
 #import "TodolistBackendAccessorImpl.h"
 #import "MapViewPlacemarksController.h"
 #import "LocationManagerController.h"
-#import "TestController.h"
 
 @implementation TodolistAppDelegate
 
